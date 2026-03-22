@@ -425,6 +425,10 @@ img {
   background: linear-gradient(135deg, #EDE9FE, #CFFAFE);
 }
 
+.app-card-visual.sct-bg {
+  background: linear-gradient(135deg, #E3F2FD, #E8EAF6);
+}
+
 .app-card-icon {
   width: 140px;
   height: 140px;
