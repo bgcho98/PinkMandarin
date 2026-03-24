@@ -390,6 +390,11 @@ img {
   gap: 32px;
 }
 
+.app-cards-single {
+  grid-template-columns: 1fr;
+  max-width: 560px;
+}
+
 .app-card {
   background: var(--bg);
   border-radius: var(--radius);
