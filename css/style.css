@@ -305,6 +305,24 @@ img {
   filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.1));
 }
 
+/* --- Section Parade --- */
+.section-parade {
+  text-align: center;
+  margin: -40px 0 -60px;
+  opacity: 0.75;
+  transition: opacity 0.3s;
+}
+
+.section-parade:hover {
+  opacity: 1;
+}
+
+.section-parade img {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 /* --- About --- */
 .about {
   padding: 100px 0;
@@ -453,6 +471,25 @@ img {
   object-fit: cover;
   filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.12));
   transition: var(--transition);
+}
+
+.petoxia-card-visual {
+  position: relative;
+}
+
+.petoxia-card-chars {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 180px;
+  height: auto;
+  border-radius: 0;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+  transition: var(--transition);
+}
+
+.app-card:hover .petoxia-card-chars {
+  transform: scale(1.05);
 }
 
 .app-card:hover .app-card-icon {
@@ -1110,6 +1147,14 @@ a.app-card-visual {
 
   .hero-characters img {
     max-width: 400px;
+  }
+
+  .section-parade img {
+    max-width: 320px;
+  }
+
+  .petoxia-card-chars {
+    width: 140px;
   }
 
   .nav {
