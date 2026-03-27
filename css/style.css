@@ -293,6 +293,18 @@ img {
   flex-wrap: wrap;
 }
 
+.hero-characters {
+  margin-top: 48px;
+}
+
+.hero-characters img {
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.1));
+}
+
 /* --- About --- */
 .about {
   padding: 100px 0;
@@ -322,8 +334,8 @@ img {
 }
 
 .about-visual-inner img {
-  width: 200px;
-  height: 200px;
+  width: 280px;
+  height: 280px;
   object-fit: contain;
 }
 
@@ -1094,6 +1106,10 @@ a.app-card-visual {
 
   .hero p {
     font-size: 1.05rem;
+  }
+
+  .hero-characters img {
+    max-width: 400px;
   }
 
   .nav {
