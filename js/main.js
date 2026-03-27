@@ -64,8 +64,67 @@
     });
   }
 
+  // --- Footer ---
+  function renderFooter() {
+    var footer = document.querySelector('footer.footer');
+    if (!footer) return;
+
+    var isFull = footer.dataset.footer === 'full';
+    var base = footer.dataset.base || '';
+
+    var bottomHtml =
+      '<div class="footer-bottom">' +
+        '<span>&copy; 2025-2026 PinkMandarin. All rights reserved.</span>' +
+        '<a href="mailto:pinkmandarin.help@gmail.com">pinkmandarin.help@gmail.com</a>' +
+        '<a href="https://ko-fi.com/pinkmandarin" target="_blank" data-ko="후원하기" data-en="Support Us">후원하기</a>' +
+      '</div>';
+
+    if (isFull) {
+      footer.innerHTML =
+        '<div class="container">' +
+          '<div class="footer-grid">' +
+            '<div class="footer-brand">' +
+              '<div class="logo">' +
+                '<div class="logo-icon"><img src="' + base + 'assets/logo.png" alt="PinkMandarin"></div>' +
+                '<span>PinkMandarin</span>' +
+              '</div>' +
+              '<p data-ko="일상을 더 스마트하고 즐겁게 만드는 모바일 앱을 개발합니다."' +
+              '   data-en="Developing mobile apps that make everyday life smarter and more enjoyable.">' +
+                '일상을 더 스마트하고 즐겁게 만드는 모바일 앱을 개발합니다.' +
+              '</p>' +
+            '</div>' +
+            '<div>' +
+              '<h4 data-ko="앱" data-en="Apps">앱</h4>' +
+              '<ul class="footer-links">' +
+                '<li><a href="' + base + 'index.html#apps">My Private Review</a></li>' +
+                '<li><a href="' + base + 'index.html#apps">Petoxia</a></li>' +
+                '<li><a href="' + base + 'math-move/index.html">Math Move</a></li>' +
+                '<li><a href="https://github.com/bgcho98/spring-config-table">Spring Config Table</a></li>' +
+              '</ul>' +
+            '</div>' +
+            '<div>' +
+              '<h4 data-ko="법적 고지" data-en="Legal">법적 고지</h4>' +
+              '<ul class="footer-links">' +
+                '<li><a href="' + base + 'my-private-review/privacy.html" data-ko="My Private Review 개인정보처리방침" data-en="My Private Review Privacy Policy">My Private Review 개인정보처리방침</a></li>' +
+                '<li><a href="' + base + 'petoxia/privacy.html" data-ko="Petoxia 개인정보처리방침" data-en="Petoxia Privacy Policy">Petoxia 개인정보처리방침</a></li>' +
+                '<li><a href="' + base + 'petoxia/terms.html" data-ko="Petoxia 이용약관" data-en="Petoxia Terms of Service">Petoxia 이용약관</a></li>' +
+                '<li><a href="' + base + 'math-move/privacy.html" data-ko="Math Move 개인정보처리방침" data-en="Math Move Privacy Policy">Math Move 개인정보처리방침</a></li>' +
+              '</ul>' +
+            '</div>' +
+          '</div>' +
+          bottomHtml +
+        '</div>';
+    } else {
+      footer.innerHTML =
+        '<div class="container">' +
+          bottomHtml +
+        '</div>';
+    }
+  }
+
   // --- Init ---
   document.addEventListener('DOMContentLoaded', function () {
+    renderFooter();
     // Language buttons
     document.querySelectorAll('.lang-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
