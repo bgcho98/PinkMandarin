@@ -584,6 +584,19 @@ a.app-card-visual {
   opacity: 0.7;
 }
 
+/* --- Footer Characters --- */
+.footer-characters {
+  text-align: center;
+  margin-bottom: -4px;
+  line-height: 0;
+}
+
+.footer-characters img {
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 /* --- Contact / Footer --- */
 .footer {
   background: var(--bg-dark);
@@ -1155,6 +1168,10 @@ a.app-card-visual {
 
   .petoxia-card-chars {
     width: 140px;
+  }
+
+  .footer-characters img {
+    max-width: 320px;
   }
 
   .nav {

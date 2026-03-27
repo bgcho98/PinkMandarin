@@ -72,12 +72,19 @@
     var isFull = footer.dataset.footer === 'full';
     var base = footer.dataset.base || '';
 
+    var charsHtml =
+      '<div class="footer-characters">' +
+        '<img src="' + base + 'assets/petoxia-footer-characters.png" alt="Petoxia Characters">' +
+      '</div>';
+
     var bottomHtml =
       '<div class="footer-bottom">' +
         '<span>&copy; 2025-2026 PinkMandarin. All rights reserved.</span>' +
         '<a href="mailto:pinkmandarin.help@gmail.com">pinkmandarin.help@gmail.com</a>' +
         '<a href="https://ko-fi.com/pinkmandarin" target="_blank" data-ko="후원하기" data-en="Support Us">후원하기</a>' +
       '</div>';
+
+    footer.insertAdjacentHTML('beforebegin', charsHtml);
 
     if (isFull) {
       footer.innerHTML =
