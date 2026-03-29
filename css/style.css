@@ -308,7 +308,7 @@ img {
 /* --- Section Parade --- */
 .section-parade {
   text-align: center;
-  padding: 20px 0 0;
+  margin: -40px 0 -60px;
   opacity: 0.75;
   transition: opacity 0.3s;
 }
