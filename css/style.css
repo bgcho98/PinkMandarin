@@ -473,24 +473,6 @@ img {
   transition: var(--transition);
 }
 
-.petoxia-card-visual {
-  position: relative;
-}
-
-.petoxia-card-chars {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 180px;
-  height: auto;
-  border-radius: 0;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
-  transition: var(--transition);
-}
-
-.app-card:hover .petoxia-card-chars {
-  transform: scale(1.05);
-}
 
 .app-card:hover .app-card-icon {
   transform: scale(1.05);
@@ -1166,9 +1148,6 @@ a.app-card-visual {
     max-width: 320px;
   }
 
-  .petoxia-card-chars {
-    width: 140px;
-  }
 
   .footer-characters img {
     max-width: 320px;
