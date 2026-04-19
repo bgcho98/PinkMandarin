@@ -45,6 +45,36 @@
     });
   }
 
+  // --- Video Facades (click thumbnail to load YouTube iframe) ---
+  function initVideoFacades() {
+    function play(item) {
+      var id = item.dataset.videoId;
+      if (!id || item.dataset.playing === '1') return;
+      item.dataset.playing = '1';
+      var iframe = document.createElement('iframe');
+      iframe.src =
+        'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1';
+      iframe.title = 'YouTube video player';
+      iframe.allow =
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      item.innerHTML = '';
+      item.appendChild(iframe);
+    }
+
+    document.querySelectorAll('.video-item').forEach(function (item) {
+      item.addEventListener('click', function () {
+        play(item);
+      });
+      item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          play(item);
+        }
+      });
+    });
+  }
+
   // --- Scroll Animations ---
   function initScrollAnimations() {
     var observer = new IntersectionObserver(
@@ -142,5 +172,6 @@
     setLang(getLang());
     initMobileMenu();
     initScrollAnimations();
+    initVideoFacades();
   });
 })();
