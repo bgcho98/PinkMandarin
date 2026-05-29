@@ -803,6 +803,19 @@ a.app-card-visual {
   padding: 120px 0 80px;
 }
 
+.app-detail-illustration {
+  margin: 16px 0 56px;
+  text-align: center;
+}
+
+.app-detail-illustration img {
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.08));
+}
+
 .app-detail-hero {
   display: flex;
   align-items: center;
