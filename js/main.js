@@ -136,6 +136,7 @@
                 '<li><a href="' + base + 'index.html#apps">My Private Review</a></li>' +
                 '<li><a href="' + base + 'index.html#apps">Petoxia</a></li>' +
                 '<li><a href="' + base + 'math-move/index.html">Math Move</a></li>' +
+                '<li><a href="' + base + 'mallang-studio/index.html" data-ko="말랑 스튜디오" data-en="Mallang Studio">말랑 스튜디오</a></li>' +
                 '<li><a href="https://github.com/bgcho98/spring-config-table">Spring Config Table</a></li>' +
               '</ul>' +
             '</div>' +

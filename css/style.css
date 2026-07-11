@@ -460,6 +460,10 @@ img {
   background: linear-gradient(135deg, #EDE9FE, #CFFAFE);
 }
 
+.app-card-visual.mallang-bg {
+  background: linear-gradient(135deg, #FCE7F3, #EDE9FE);
+}
+
 .app-card-visual.sct-bg {
   background: linear-gradient(135deg, #E3F2FD, #E8EAF6);
 }

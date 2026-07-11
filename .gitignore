@@ -5,3 +5,4 @@
 # Editor / OS
 *.swp
 Thumbs.db
+.serena/
