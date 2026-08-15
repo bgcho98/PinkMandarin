@@ -111,6 +111,7 @@
       '<div class="footer-bottom">' +
         '<span>&copy; 2025-2026 PinkMandarin. All rights reserved.</span>' +
         '<a href="mailto:pinkmandarin.help@gmail.com">pinkmandarin.help@gmail.com</a>' +
+        '<a href="https://www.instagram.com/pinkmandarin.help/" target="_blank" rel="noopener">Instagram @pinkmandarin.help</a>' +
         '<a href="https://ko-fi.com/pinkmandarin" target="_blank" data-ko="후원하기" data-en="Support Us">후원하기</a>' +
       '</div>';
 
@@ -136,7 +137,7 @@
                 '<li><a href="' + base + 'index.html#apps">My Private Review</a></li>' +
                 '<li><a href="' + base + 'index.html#apps">Petoxia</a></li>' +
                 '<li><a href="' + base + 'math-move/index.html">Math Move</a></li>' +
-                '<li><a href="' + base + 'mallang-studio/index.html" data-ko="말랑 스튜디오" data-en="Mallang Studio">말랑 스튜디오</a></li>' +
+                '<li><a href="' + base + 'mallang-studio/index.html" data-ko="말랑 공방" data-en="Mallang Studio">말랑 공방</a></li>' +
                 '<li><a href="https://github.com/bgcho98/spring-config-table">Spring Config Table</a></li>' +
               '</ul>' +
             '</div>' +
@@ -147,6 +148,8 @@
                 '<li><a href="' + base + 'petoxia/privacy.html" data-ko="Petoxia 개인정보처리방침" data-en="Petoxia Privacy Policy">Petoxia 개인정보처리방침</a></li>' +
                 '<li><a href="' + base + 'petoxia/terms.html" data-ko="Petoxia 이용약관" data-en="Petoxia Terms of Service">Petoxia 이용약관</a></li>' +
                 '<li><a href="' + base + 'math-move/privacy.html" data-ko="Math Move 개인정보처리방침" data-en="Math Move Privacy Policy">Math Move 개인정보처리방침</a></li>' +
+                '<li><a href="' + base + 'mallang-studio/privacy.html" data-ko="말랑 공방 개인정보처리방침" data-en="Mallang Studio Privacy Policy">말랑 공방 개인정보처리방침</a></li>' +
+                '<li><a href="' + base + 'mallang-studio/terms.html" data-ko="말랑 공방 이용약관" data-en="Mallang Studio Terms of Service">말랑 공방 이용약관</a></li>' +
               '</ul>' +
             '</div>' +
           '</div>' +

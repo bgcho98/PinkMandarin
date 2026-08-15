@@ -47,7 +47,7 @@
       <div data-lang="ko">
         <div class="legal-header">
           <h1>개인정보처리방침</h1>
-          <p class="meta">Math Move &middot; 시행일: 2026년 3월 10일</p>
+          <p class="meta">Math Move &middot; 시행일: 2026년 7월 28일 (Android · iOS)</p>
         </div>
         <div class="legal-content">
           <p>PinkMandarin(이하 "회사")은 Math Move(이하 "앱") 이용자의 개인정보를 중요시하며, 개인정보보호법 등 관련 법령을 준수합니다.</p>
@@ -55,10 +55,14 @@
           <h2>1. 수집하는 개인정보</h2>
           <table>
             <tr><th>수집 항목</th><th>수집 방법</th></tr>
-            <tr><td>Google 계정 정보 (표시 이름, 이메일, 프로필 사진 URL)</td><td>Google 로그인 시 자동 수집</td></tr>
+            <tr><td>소셜 로그인 계정 정보 (표시 이름, 이메일, 프로필 사진 URL)</td><td>Google 로그인 또는 Apple로 로그인 시 자동 수집</td></tr>
+            <tr><td>익명 사용자 식별자</td><td>로그인 없이 게스트로 시작할 때 자동 생성</td></tr>
             <tr><td>게임 데이터 (스테이지 기록, 별, 클리어 시간)</td><td>앱 이용 과정에서 자동 생성</td></tr>
             <tr><td>랭킹 데이터 (표시 이름, 최고 스테이지, 총 별 수)</td><td>게임 결과 저장 시 자동 생성</td></tr>
+            <tr><td>크래시 진단 정보 (기기 모델, OS 버전, 오류 로그)</td><td>앱 오류 발생 시 Firebase Crashlytics 를 통해 자동 수집</td></tr>
+            <tr><td>광고 식별자</td><td>보상형 광고 요청 시 (비개인화 광고 목적)</td></tr>
           </table>
+          <p>Apple로 로그인은 이름과 이메일을 <strong>첫 로그인 시에만</strong> 전달하며, 이용자가 이메일 가리기를 선택한 경우 Apple이 제공하는 전달용 주소만 저장됩니다.</p>
 
           <h2>2. 개인정보의 수집 및 이용 목적</h2>
           <ul>
@@ -66,10 +70,13 @@
             <li>게임 진행 상황 저장 및 클라우드 동기화</li>
             <li>스테이지별 및 글로벌 랭킹 기능 제공</li>
             <li>보상형 광고 제공 (AdMob)</li>
+            <li>인앱 구매(무제한 플레이) 확인 및 복원</li>
+            <li>앱 오류 진단 및 안정성 개선</li>
           </ul>
 
           <h2>3. 카메라 사용</h2>
-          <p>본 앱은 포즈 인식 게임플레이를 위해 카메라 권한을 요청합니다. 카메라 영상은 기기에서 실시간으로 ML Kit 포즈 인식에만 사용되며, 녹화되거나 외부로 전송되지 않습니다.</p>
+          <p>본 앱은 포즈 인식 게임플레이를 위해 카메라 권한을 요청합니다. 카메라 영상은 <strong>기기 안에서 실시간 포즈 인식에만</strong> 사용되며(Android: Google ML Kit, iOS: Apple Vision), 녹화되거나 외부로 전송되지 않습니다.</p>
+          <p>카메라를 사용하지 않고 플레이하고 싶은 경우, 홈 화면 상단의 <strong>'손가락' 모드</strong>를 선택하면 카드를 손으로 눌러 답할 수 있습니다. 이때 카메라 권한은 요청하지 않습니다.</p>
 
           <h2>4. 개인정보의 보유 및 이용 기간</h2>
           <ul>
@@ -77,17 +84,24 @@
             <li><strong>서버 데이터 (Firebase):</strong> 회원 탈퇴 시 삭제 또는 개발자에게 삭제 요청 가능</li>
           </ul>
 
-          <h2>5. 개인정보의 제3자 제공</h2>
+          <h2>5. 계정 및 데이터 삭제</h2>
+          <p>앱 내 <strong>설정 → 계정 삭제</strong>에서 직접 계정과 서버에 저장된 데이터를 삭제할 수 있습니다. Apple로 로그인으로 가입한 경우, 계정 삭제 시 Apple에 발급된 인증 토큰도 함께 폐기합니다.</p>
+          <p>자세한 절차는 <a href="account-deletion.html">계정 삭제 안내</a>를 참고하시거나 아래 이메일로 요청해 주세요.</p>
+
+          <h2>6. 개인정보의 제3자 제공</h2>
           <p>회사는 사용자의 개인정보를 제3자에게 제공하지 않습니다. 다만, 다음 서비스를 사용합니다:</p>
           <ul>
             <li><strong>Google Firebase:</strong> 인증 및 데이터 저장 (Google 개인정보처리방침 적용)</li>
+            <li><strong>Firebase Crashlytics:</strong> 앱 오류 진단</li>
             <li><strong>Google AdMob:</strong> 보상형 광고 제공 (Google 광고 정책 적용)</li>
+            <li><strong>Apple:</strong> Apple로 로그인 및 App Store 인앱 결제 처리 (iOS, Apple 개인정보처리방침 적용)</li>
           </ul>
 
-          <h2>6. 아동의 개인정보 보호</h2>
+          <h2>7. 아동의 개인정보 보호</h2>
           <p>본 앱은 아동 대상 교육 게임이지만, 만 13세 미만의 아동은 보호자의 동의 하에 사용해야 합니다. 보호자의 동의 없이 아동의 개인정보를 의도적으로 수집하지 않습니다.</p>
+          <p>광고는 <strong>아동 대상(child-directed) 요청으로만</strong> 전달하며 개인화(맞춤) 광고를 사용하지 않습니다. iOS에서는 앱 추적(ATT) 권한을 요청하지 않고, 앱이나 웹사이트를 넘나드는 추적 목적으로 데이터를 사용하지 않습니다.</p>
 
-          <h2>7. 개인정보 보호책임자</h2>
+          <h2>8. 개인정보 보호책임자</h2>
           <table>
             <tr><th>구분</th><th>내용</th></tr>
             <tr><td>개발사</td><td>PinkMandarin</td></tr>
@@ -100,7 +114,7 @@
       <div data-lang="en" style="display:none">
         <div class="legal-header">
           <h1>Privacy Policy</h1>
-          <p class="meta">Math Move &middot; Effective: March 10, 2026</p>
+          <p class="meta">Math Move &middot; Effective: July 28, 2026 (Android &middot; iOS)</p>
         </div>
         <div class="legal-content">
           <p>PinkMandarin ("the Company") values the personal information of Math Move ("the App") users and complies with the Personal Information Protection Act and related laws.</p>
@@ -108,10 +122,14 @@
           <h2>1. Personal Information Collected</h2>
           <table>
             <tr><th>Information</th><th>Collection Method</th></tr>
-            <tr><td>Google account details (display name, email, profile photo URL)</td><td>Automatically collected upon Google sign-in</td></tr>
+            <tr><td>Social sign-in account details (display name, email, profile photo URL)</td><td>Automatically collected upon Google sign-in or Sign in with Apple</td></tr>
+            <tr><td>Anonymous user identifier</td><td>Generated when starting as a guest without signing in</td></tr>
             <tr><td>Game data (stage records, stars, clear times)</td><td>Automatically generated during gameplay</td></tr>
             <tr><td>Ranking data (display name, best stage, total stars)</td><td>Automatically generated when saving results</td></tr>
+            <tr><td>Crash diagnostics (device model, OS version, error logs)</td><td>Collected via Firebase Crashlytics when an error occurs</td></tr>
+            <tr><td>Advertising identifier</td><td>Used when requesting rewarded ads (non-personalized only)</td></tr>
           </table>
+          <p>Sign in with Apple provides your name and email <strong>only on the first sign-in</strong>. If you choose to hide your email, we store only the relay address supplied by Apple.</p>
 
           <h2>2. Purpose of Collection and Use</h2>
           <ul>
@@ -119,10 +137,13 @@
             <li>Saving game progress and cloud synchronization</li>
             <li>Stage-specific and global ranking features</li>
             <li>Rewarded ad delivery (AdMob)</li>
+            <li>Verifying and restoring in-app purchases (Unlimited Play)</li>
+            <li>Diagnosing crashes and improving stability</li>
           </ul>
 
           <h2>3. Camera Usage</h2>
-          <p>This App requests camera permission for pose-detection gameplay. Camera footage is used only for real-time ML Kit pose detection on the device. It is never recorded or transmitted externally.</p>
+          <p>This App requests camera permission for pose-detection gameplay. Camera footage is used <strong>only for on-device, real-time pose detection</strong> (Android: Google ML Kit, iOS: Apple Vision). It is never recorded or transmitted externally.</p>
+          <p>If you prefer to play without the camera, select <strong>Finger Mode</strong> at the top of the home screen and tap the answer cards instead. Camera permission is not requested in that mode.</p>
 
           <h2>4. Retention and Use Period</h2>
           <ul>
@@ -130,17 +151,24 @@
             <li><strong>Server data (Firebase):</strong> Deleted upon account deletion or by request to the developer</li>
           </ul>
 
-          <h2>5. Provision to Third Parties</h2>
+          <h2>5. Account and Data Deletion</h2>
+          <p>You can delete your account and the data stored on our servers yourself from <strong>Settings → Delete Account</strong> in the app. If you signed up with Sign in with Apple, the authentication token issued to Apple is revoked as part of deletion.</p>
+          <p>See <a href="account-deletion.html">Account Deletion</a> for details, or email us at the address below.</p>
+
+          <h2>6. Provision to Third Parties</h2>
           <p>The Company does not provide users' personal information to third parties. However, the following services are used:</p>
           <ul>
             <li><strong>Google Firebase:</strong> Authentication and data storage (Google's Privacy Policy applies)</li>
+            <li><strong>Firebase Crashlytics:</strong> Crash diagnostics</li>
             <li><strong>Google AdMob:</strong> Rewarded ad delivery (Google's Ads Policy applies)</li>
+            <li><strong>Apple:</strong> Sign in with Apple and App Store in-app purchases (iOS; Apple's Privacy Policy applies)</li>
           </ul>
 
-          <h2>6. Children's Privacy</h2>
+          <h2>7. Children's Privacy</h2>
           <p>While this App is an educational game for children, users under 13 must use the App with parental consent. We do not intentionally collect personal information from children without parental consent.</p>
+          <p>Ads are requested as <strong>child-directed only</strong> and we do not serve personalized ads. On iOS we do not present the App Tracking Transparency prompt and do not use data to track you across apps or websites.</p>
 
-          <h2>7. Privacy Officer</h2>
+          <h2>8. Privacy Officer</h2>
           <table>
             <tr><th>Category</th><th>Details</th></tr>
             <tr><td>Developer</td><td>PinkMandarin</td></tr>
