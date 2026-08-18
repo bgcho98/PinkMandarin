@@ -901,6 +901,17 @@ a.app-card-visual {
   opacity: 0.7;
 }
 
+/* 스토어 버튼 아래 보충 설명 — 플랫폼별 제약 등 */
+.store-note {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.btn-store-icon svg {
+  display: block;
+}
+
 /* Screenshots */
 .app-screenshots {
   margin-bottom: 64px;
