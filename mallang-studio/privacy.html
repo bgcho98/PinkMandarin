@@ -47,7 +47,7 @@
       <div data-lang="ko">
         <div class="legal-header">
           <h1>개인정보처리방침</h1>
-          <p class="meta">말랑 공방 &middot; 시행일: 2026년 8월 16일</p>
+          <p class="meta">말랑 공방 &middot; 시행일: 2026년 8월 16일 (Android &middot; iOS)</p>
         </div>
         <div class="legal-content">
           <p>PinkMandarin(이하 "회사")은 말랑 공방(이하 "앱") 이용자의 개인정보를 중요시하며, 개인정보보호법 등 관련 법령을 준수합니다. 앱은 어린이를 주 이용자로 하는 서비스로, 개인정보 수집을 최소화하도록 설계되었습니다.</p>
@@ -61,10 +61,14 @@
             <tr><td>상점에 올린 작품 (완성 이미지, 구성 정보, 가격)</td><td><strong>이용자가 상점에 올리기를 선택한 경우에만</strong> 서버(Google Firebase)에 저장되어 다른 이용자에게 공개됩니다. 갤러리에만 저장하면 기기 밖으로 전송되지 않습니다</td></tr>
             <tr><td>코인 잔액</td><td>상점 거래의 정합성을 위해 익명 식별자와 함께 서버에 보관됩니다</td></tr>
             <tr><td>익명 사용 통계 (화면 이동, 게임 플레이 이벤트, 기기 모델·OS 버전, 앱 인스턴스 식별자)</td><td>Google Firebase 애널리틱스를 통해 자동 수집됩니다</td></tr>
-            <tr><td>광고 식별자 (광고 ID)</td><td>Google AdMob이 광고 게재 및 실적 측정에 사용합니다. 아동 대상 서비스로 설정되어 비개인화 광고만 표시됩니다</td></tr>
+            <tr><td>광고 식별자 (광고 ID)</td><td>Google AdMob이 광고 게재 및 실적 측정에 사용합니다. 아동 대상 서비스로 설정되어 비개인화 광고만 표시됩니다. iOS에서는 앱 추적(ATT) 권한을 요청하지 않으므로 광고 식별자(IDFA)를 수집하지 않습니다</td></tr>
           </table>
 
-          <h2>2. 수집 정보의 이용 목적</h2>
+          <h2>2. 카메라와 사진 접근</h2>
+          <p>'말랑이' 게임에서 <strong>손으로 말랑이를 쥐며 노는 기능을 이용자가 직접 켤 때에만</strong> 전면 카메라를 사용합니다. 카메라 영상은 기기 안에서 손 인식에만 쓰이며 녹화·저장되거나 외부로 전송되지 않습니다. 권한을 허용하지 않아도 손가락으로 그대로 놀 수 있습니다.</p>
+          <p>완성한 작품을 사진 앨범에 저장할 때에만 사진 접근 권한을 요청합니다. 앱은 기기에 이미 있는 사진을 읽지 않으며, 이용자가 저장을 선택한 작품 이미지만 앨범에 추가합니다.</p>
+
+          <h2>3. 수집 정보의 이용 목적</h2>
           <ul>
             <li>게임 진행 상태 저장 및 복원 (기기 내 저장)</li>
             <li>서비스 품질 개선, 오류 파악, 이용 패턴 분석 (익명 통계)</li>
@@ -72,22 +76,22 @@
             <li>상점에 올린 작품의 공개·거래 및 코인 잔액 정합성 유지 (Google Firebase)</li>
           </ul>
 
-          <h2>3. 제3자 제공 및 처리 위탁</h2>
+          <h2>4. 제3자 제공 및 처리 위탁</h2>
           <p>회사는 이용자의 정보를 제3자에게 판매하거나 제공하지 않습니다. 익명 사용 통계 처리를 위해 Google LLC의 Firebase 애널리틱스를, 상점 기능(인증·데이터베이스·이미지 저장)을 위해 Firebase 를, 광고 게재를 위해 Google AdMob을 이용하며, 해당 처리에는 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a>이 적용됩니다.</p>
 
-          <h2>4. 어린이의 개인정보</h2>
-          <p>앱은 어린이가 안전하게 이용할 수 있도록 Google Play 가족 정책을 준수합니다. 광고는 아동 대상 처리(비개인화)로만 표시되며, 앱 내 결제를 제공하지 않고, 개인을 식별할 수 있는 정보를 요구하지 않습니다. 상점에는 <strong>채팅이나 자유 텍스트 입력이 없고</strong> 게임에서 만든 작품 이미지만 오갑니다. 부적절한 작품은 누구나 신고할 수 있으며 신고가 누적되면 자동으로 삭제됩니다.</p>
+          <h2>5. 어린이의 개인정보</h2>
+          <p>앱은 어린이가 안전하게 이용할 수 있도록 Google Play 가족 정책과 Apple App Store의 아동 관련 정책(연령 등급 4+)을 준수합니다. 광고는 아동 대상 처리(비개인화)로만 표시되며, 앱 내 결제를 제공하지 않고, 개인을 식별할 수 있는 정보를 요구하지 않습니다. 상점에는 <strong>채팅이나 자유 텍스트 입력이 없고</strong> 게임에서 만든 작품 이미지만 오갑니다. 부적절한 작품은 누구나 신고할 수 있으며 신고가 누적되면 자동으로 삭제됩니다.</p>
 
-          <h2>5. 보유 및 파기</h2>
+          <h2>6. 보유 및 파기</h2>
           <p>기기 내 게임 데이터는 앱 삭제 시 함께 삭제됩니다. Firebase 애널리틱스 데이터는 Google의 보존 정책(최대 14개월)에 따라 자동 파기됩니다. 상점에 올린 작품은 이용자가 내리거나 판매될 때까지 보관되며, 삭제를 원하시면 아래 연락처로 요청해 주세요.</p>
 
-          <h2>6. 이용자의 권리</h2>
+          <h2>7. 이용자의 권리</h2>
           <p>이용자는 앱을 삭제함으로써 기기 내 모든 데이터를 즉시 파기할 수 있으며, 수집 관련 문의는 아래 연락처로 요청할 수 있습니다.</p>
 
-          <h2>7. 문의</h2>
+          <h2>8. 문의</h2>
           <p>개인정보 관련 문의: <a href="mailto:pinkmandarin.help@gmail.com">pinkmandarin.help@gmail.com</a></p>
 
-          <h2>8. 방침의 변경</h2>
+          <h2>9. 방침의 변경</h2>
           <p>본 방침이 변경되는 경우 시행일 7일 전 본 페이지를 통해 공지합니다.</p>
         </div>
       </div>
@@ -96,7 +100,7 @@
       <div data-lang="en" style="display:none">
         <div class="legal-header">
           <h1>Privacy Policy</h1>
-          <p class="meta">Mallang Studio &middot; Effective: August 16, 2026</p>
+          <p class="meta">Mallang Studio &middot; Effective: August 16, 2026 (Android &middot; iOS)</p>
         </div>
         <div class="legal-content">
           <p>PinkMandarin ("the Company") values the privacy of Mallang Studio ("the App") users and complies with applicable privacy laws. The App is designed primarily for children and minimizes data collection.</p>
@@ -110,10 +114,14 @@
             <tr><td>Creations listed in the shop (finished image, part composition, price)</td><td>Uploaded to our server (Google Firebase) and shown to other users <strong>only if you choose to list them</strong>. Creations kept in your gallery never leave the device</td></tr>
             <tr><td>Coin balance</td><td>Kept on the server alongside the anonymous identifier so shop trades stay consistent</td></tr>
             <tr><td>Anonymous usage statistics (screen views, gameplay events, device model/OS version, app instance identifier)</td><td>Collected automatically via Google Firebase Analytics</td></tr>
-            <tr><td>Advertising identifier (Ad ID)</td><td>Used by Google AdMob to serve and measure ads. The App is flagged as child-directed, so only non-personalized ads are shown</td></tr>
+            <tr><td>Advertising identifier (Ad ID)</td><td>Used by Google AdMob to serve and measure ads. The App is flagged as child-directed, so only non-personalized ads are shown. On iOS the App never requests App Tracking Transparency permission, so no advertising identifier (IDFA) is collected</td></tr>
           </table>
 
-          <h2>2. How We Use Information</h2>
+          <h2>2. Camera and Photo Access</h2>
+          <p>The front camera is used only in the "Mallang" game, and only when you <strong>turn on the hand-tracking play mode yourself</strong>. The camera image is used on your device solely to detect your hand — nothing is recorded, stored, or uploaded. If you decline the permission you can keep playing with touch instead.</p>
+          <p>Photo access is requested only when you save a finished creation to your photo library. The App never reads photos already on your device; it only adds the creation images you chose to save.</p>
+
+          <h2>3. How We Use Information</h2>
           <ul>
             <li>Saving and restoring game progress (on-device)</li>
             <li>Improving service quality, diagnosing errors, analyzing usage patterns (anonymous statistics)</li>
@@ -121,22 +129,22 @@
             <li>Publishing and trading shop listings, and keeping coin balances consistent (Google Firebase)</li>
           </ul>
 
-          <h2>3. Third Parties</h2>
+          <h2>4. Third Parties</h2>
           <p>We never sell or share user information with third parties. Anonymous usage statistics are processed by Google LLC's Firebase Analytics, the shop (authentication, database, image storage) runs on Firebase, and ads are served by Google AdMob, under the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
 
-          <h2>4. Children's Privacy</h2>
-          <p>The App complies with the Google Play Families policy. Ads are served with child-directed treatment (non-personalized only); the App offers no in-app purchases and never asks for personally identifiable information. The shop has <strong>no chat and no free-text input</strong> — only images created inside the games are exchanged. Anyone can report an inappropriate creation, and reported items are removed automatically once reports accumulate.</p>
+          <h2>5. Children's Privacy</h2>
+          <p>The App complies with the Google Play Families policy and Apple's App Store policies for apps aimed at children (age rating 4+). Ads are served with child-directed treatment (non-personalized only); the App offers no in-app purchases and never asks for personally identifiable information. The shop has <strong>no chat and no free-text input</strong> — only images created inside the games are exchanged. Anyone can report an inappropriate creation, and reported items are removed automatically once reports accumulate.</p>
 
-          <h2>5. Retention and Deletion</h2>
+          <h2>6. Retention and Deletion</h2>
           <p>On-device game data is deleted when the App is uninstalled. Firebase Analytics data is automatically deleted per Google's retention policy (up to 14 months). Creations listed in the shop are kept until you unlist them or they are sold; contact us below if you want them removed.</p>
 
-          <h2>6. Your Rights</h2>
+          <h2>7. Your Rights</h2>
           <p>You can delete all on-device data immediately by uninstalling the App. For any questions about data collection, contact us below.</p>
 
-          <h2>7. Contact</h2>
+          <h2>8. Contact</h2>
           <p>Privacy inquiries: <a href="mailto:pinkmandarin.help@gmail.com">pinkmandarin.help@gmail.com</a></p>
 
-          <h2>8. Changes to This Policy</h2>
+          <h2>9. Changes to This Policy</h2>
           <p>If this policy changes, we will announce it on this page at least 7 days before the effective date.</p>
         </div>
       </div>
