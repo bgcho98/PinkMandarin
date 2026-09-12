@@ -1404,3 +1404,258 @@ a.app-card-visual {
     height: 60px;
   }
 }
+
+/* --- Release Notes (mallang-studio/whats-new.html) --- */
+.release-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.release {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 24px;
+  background: #fff;
+}
+
+.release.is-next {
+  border-color: var(--pink);
+  background: linear-gradient(180deg, #fff6fb 0%, #ffffff 60%);
+}
+
+.release-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.release-head h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text);
+}
+
+.release-date {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.release-platforms {
+  display: flex;
+  gap: 6px;
+  margin: 10px 0 14px;
+  flex-wrap: wrap;
+}
+
+.release-platforms .feature-tag {
+  font-size: 0.75rem;
+}
+
+.release ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-light);
+}
+
+.release li {
+  margin-bottom: 7px;
+  line-height: 1.7;
+}
+
+.release-note {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+}
+
+@media (max-width: 640px) {
+  .release { padding: 18px 16px; }
+  .release-head h2 { font-size: 1.05rem; }
+}
+
+/* --- Release Notes: 파츠 갤러리 + 화면 캡처 --- */
+.release-hero {
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 0 0 28px;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, #fff2f8 0%, #f3f0ff 100%);
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 20px 22px;
+  flex-wrap: wrap;
+}
+
+.release-hero img {
+  width: 132px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+  flex: none;
+}
+
+.release-hero-text { flex: 1 1 240px; }
+
+.release-hero-text p {
+  color: var(--text-light);
+  line-height: 1.75;
+  margin: 6px 0 0;
+}
+
+/* 파츠 그림 타일 — 실제 게임 아트를 그대로 보여준다 */
+.part-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 8px;
+  margin: 4px 0 16px;
+}
+
+.part-grid figure {
+  margin: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+}
+
+.part-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.part-group-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 14px 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.part-group-label::before {
+  content: "";
+  width: 3px;
+  height: 13px;
+  border-radius: 2px;
+  background: var(--pink);
+  flex: none;
+}
+
+/* 인앱 화면 캡처 — 폰 프레임 없이 라운드 + 그림자만 */
+.shot-row {
+  display: flex;
+  gap: 12px;
+  margin: 14px 0 4px;
+  flex-wrap: wrap;
+}
+
+.shot-row figure {
+  margin: 0;
+  flex: 0 0 auto;
+  width: 148px;
+}
+
+.shot-row img {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+  display: block;
+}
+
+.shot-row figcaption {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-top: 6px;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .release-hero img { width: 104px; }
+  .shot-row figure { width: 128px; }
+  .part-grid { grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); }
+}
+
+/* 웹뷰 임베드 모드(?embed=1): 앱 안에서 열릴 때 헤더·푸터·뒤로가기를 숨긴다 */
+body.embed .header,
+body.embed .footer,
+body.embed .legal-back { display: none !important; }
+
+body.embed .legal-page { padding-top: 28px; }
+
+/* 임베드(앱 웹뷰)에서는 페이지 말미 문의 안내를 숨긴다 — 그 안의 mailto 링크가
+   호스트 화이트리스트에 걸려 눌러도 아무 일이 없는 '죽은 링크'가 되기 때문. */
+body.embed .page-note { display: none !important; }
+
+/* single-release (앱 실행 시 안내 모달, `?v=N`): **그 버전 카드 하나만** 남긴다.
+   히어로·페이지 설명·나머지 카드를 숨기고, 카드 자체 테두리도 없앤다
+   (앱이 이미 둥근 카드 안에 웹뷰를 넣어 그리므로 이중 테두리가 된다).
+   어느 카드를 남길지는 JS 가 data-version 으로 골라 클래스를 붙인다 —
+   :first-of-type 으로 고르면 새 릴리스가 위에 붙는 순간 구버전 앱이 틀린 걸 본다. */
+body.single-release .release-hero,
+body.single-release .legal-header,
+body.single-release .page-note,
+body.single-release .release.hide-release { display: none !important; }
+
+body.single-release .legal-page { padding: 4px 0 8px; }
+body.single-release .container { padding-left: 14px; padding-right: 14px; }
+
+body.single-release .release.show-release {
+  border: 0;
+  background: none;
+  padding: 0;
+}
+
+body.single-release .release-head h2 { font-size: 1.25rem; }
+
+/* --- Release Notes: 선물로 미리 열어 둔 파츠 --- */
+/* 이번 확장은 전부 뽑기 잠금이라, 새로 생긴 게 많아도 아이 눈에는 자물쇠만 늘어 보인다.
+   종류마다 하나씩 미리 열어 주고 그걸 여기서 제일 먼저 보이게 한다. */
+.gift-box {
+  margin: 16px 0 4px;
+  padding: 16px 16px 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fff6fb 0%, #f6f4ff 100%);
+  border: 1px solid var(--border);
+}
+
+.gift-box-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.gift-box-head strong {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.gift-box-head span {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.gift-box .part-grid { margin-top: 10px; }
+
+.gift-box figure figcaption {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.72rem;
+  color: var(--text-light);
+  text-align: center;
+  line-height: 1.3;
+}
