@@ -1649,13 +1649,31 @@ body.single-release .release-head h2 { font-size: 1.25rem; }
   color: var(--text-light);
 }
 
-.gift-box .part-grid { margin-top: 10px; }
+/* 선물 칸만 캡션을 단다. 기본 `.part-grid figure` 는 flex-row + aspect-ratio:1 이라
+   캡션이 그림 **옆**으로 밀려 글자가 한 자씩 세로로 쪼개진다(앱 웹뷰 실측).
+   그래서 세로로 세우고 비율 고정을 푼다. 칸도 캡션이 들어갈 만큼 넓힌다. */
+.gift-box .part-grid {
+  margin-top: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+}
 
-.gift-box figure figcaption {
-  display: block;
+.gift-box .part-grid figure {
+  flex-direction: column;
+  aspect-ratio: auto;
+  justify-content: flex-start;
+  padding: 6px 4px 7px;
+}
+
+.gift-box .part-grid img {
+  height: 62px;
+  width: 100%;
+}
+
+.gift-box figcaption {
   margin-top: 5px;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: var(--text-light);
   text-align: center;
-  line-height: 1.3;
+  line-height: 1.25;
+  word-break: keep-all;
 }
