@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MenuBarMore | PinkMandarin</title>
+  <meta name="description" content="MenuBarMore — reach the macOS menu bar icons hidden behind the notch or pushed off-screen. It leaves the originals untouched and presses the one you pick.">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon"><img src="../assets/logo.png" alt="PinkMandarin"></div>
+        <span class="gradient-text">PinkMandarin</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html" data-ko="홈" data-en="Home">홈</a>
+        <a href="../index.html#tools" data-ko="도구" data-en="Tools">도구</a>
+        <a href="../index.html#contact" data-ko="문의" data-en="Contact">문의</a>
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="ko">KO</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </nav>
+      <div class="mobile-controls">
+        <div class="lang-toggle mobile-lang">
+          <button class="lang-btn active" data-lang="ko">KO</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button class="mobile-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-detail">
+    <div class="container">
+      <a href="../index.html" class="legal-back">← <span data-ko="홈으로 돌아가기" data-en="Back to Home">홈으로 돌아가기</span></a>
+
+      <!-- Hero -->
+      <div class="app-detail-hero">
+        <img src="../assets/app-menubarmore.png" alt="MenuBarMore" class="app-detail-icon">
+        <div class="app-detail-info">
+          <h1>MenuBarMore</h1>
+          <div class="app-developer">PinkMandarin</div>
+          <p class="app-tagline" data-ko="노치와 좁은 폭 때문에 가려진 메뉴바 아이콘에 접근하세요" data-en="Reach the menu bar icons hidden behind the notch or pushed off-screen">노치와 좁은 폭 때문에 가려진 메뉴바 아이콘에 접근하세요</p>
+          <div class="app-detail-badges">
+            <span class="app-card-badge badge-dev" data-ko="준비 중" data-en="Coming Soon">준비 중</span>
+            <span class="feature-tag">macOS 14.0+</span>
+            <span class="feature-tag">Universal</span>
+            <span class="feature-tag">$1</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Store Buttons -->
+      <div class="app-detail-buttons">
+        <span class="btn-store">
+          <span class="btn-store-icon">&#9660;</span>
+          <span class="btn-store-text"><small data-ko="판매 페이지 준비 중" data-en="STORE COMING SOON">판매 페이지 준비 중</small>$1</span>
+        </span>
+      </div>
+
+      <!-- Description -->
+      <section class="app-description">
+        <h2 data-ko="앱 소개" data-en="About This App">앱 소개</h2>
+        <div class="app-desc-content" data-lang="ko">
+          <p>맥북 노치 뒤로 메뉴바 아이콘이 사라진 적이 있으신가요? 아이콘을 몇 개만 더 설치하면 왼쪽 아이콘들이 노치에 파묻혀 영영 누를 수 없게 됩니다.</p>
+          <p>메뉴바 아이콘이 넘칠 때 쓰는 도구는 이미 여럿 있습니다. 대부분은 <strong>아이콘을 화면 밖으로 밀어내는 방식</strong>입니다. 이 방식은 메뉴바 가용 폭에 의존하기 때문에, 아이콘을 계속 설치하면 결국 다시 깨집니다.</p>
+          <p>MenuBarMore는 <strong>원본 아이템을 건드리지 않습니다.</strong> 모든 앱의 메뉴바 아이템을 목록으로 보여주고, 고른 항목을 대신 눌러 줍니다. 메뉴바 폭과 무관하게 동작하므로 아이콘을 더 설치해도 깨지지 않습니다.</p>
+          <h3>주요 기능</h3>
+          <ul>
+            <li>가려진 아이콘 자동 판정 — 노치 구간과 화면 경계를 계산해 못 누르는 아이콘을 <code>●</code> 표시로 목록 위쪽에 모아 줍니다</li>
+            <li>원본 유지 — 아이콘을 옮기거나 숨기지 않습니다. 다른 도구와 함께 써도 충돌하지 않습니다</li>
+            <li>즉시 열리는 메뉴 — 목록을 미리 준비해 두므로 클릭하면 기다림 없이 펼쳐집니다</li>
+            <li>앱별 아이콘과 이름 — 제어 센터처럼 한 앱이 여러 아이템을 가진 경우도 각각 구분해 보여줍니다</li>
+            <li>로그인 시 자동 실행 — 한 번 켜 두면 맥을 켤 때마다 준비됩니다</li>
+            <li>한국어 · 영어 지원</li>
+          </ul>
+          <h3>개인정보</h3>
+          <p>MenuBarMore는 데이터를 수집하지 않고, 저장하지 않고, 외부로 보내지 않습니다. 네트워크에 접속하지 않습니다. 손쉬운 사용 권한은 메뉴바 아이템을 읽고 대신 누르는 데에만 씁니다.</p>
+        </div>
+        <div class="app-desc-content" data-lang="en" style="display:none">
+          <p>Ever lost a menu bar icon behind the MacBook notch? Install a few more apps and the icons on the left get swallowed whole — unreachable, permanently.</p>
+          <p>There are already tools for a crowded menu bar. Most of them <strong>push icons off-screen</strong>. That approach depends on available menu bar width, so it breaks again once you keep installing icons.</p>
+          <p>MenuBarMore <strong>leaves the original items untouched.</strong> It lists every app's menu bar items and presses the one you pick. It works regardless of menu bar width, so it keeps working no matter how many icons you add.</p>
+          <h3>Key Features</h3>
+          <ul>
+            <li>Automatic occlusion detection — measures the notch region and screen edges, then groups unreachable icons at the top of the list with a <code>●</code> marker</li>
+            <li>Originals untouched — nothing is moved or hidden, so it coexists with other menu bar tools</li>
+            <li>Instant menu — the list is prepared in advance, so it opens with no wait</li>
+            <li>Per-item names and icons — apps that own several items, like Control Center, are shown individually</li>
+            <li>Launch at login — turn it on once and it is ready every time you boot</li>
+            <li>Korean and English</li>
+          </ul>
+          <h3>Privacy</h3>
+          <p>MenuBarMore collects nothing, stores nothing, and sends nothing. It makes no network connections. Accessibility permission is used solely to read menu bar items and press the one you choose.</p>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="app-features">
+        <h2 data-ko="특징" data-en="Features">특징</h2>
+        <div class="features-grid">
+          <div class="feature-card" data-lang="ko">
+            <div class="feature-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="4" rx="1"/><path d="M9 4v4M15 4v4M4 12h16M4 16h10"/></svg></div>
+            <h3>폭에 의존하지 않음</h3>
+            <p>아이콘을 화면 밖으로 밀어내지 않습니다. 메뉴바가 아무리 좁아도, 아이콘을 아무리 많이 설치해도 그대로 동작합니다.</p>
+          </div>
+          <div class="feature-card" data-lang="ko">
+            <div class="feature-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div>
+            <h3>기다림 없는 메뉴</h3>
+            <p>아이콘에 마우스가 닿는 순간 목록을 미리 준비합니다. 클릭하면 바로 펼쳐집니다.</p>
+          </div>
+          <div class="feature-card" data-lang="ko">
+            <div class="feature-card-icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <h3>서명과 공증</h3>
+            <p>Apple Developer ID로 서명하고 공증을 받습니다. 서명 이후 1바이트라도 바뀌면 macOS가 실행을 막습니다.</p>
+          </div>
+          <div class="feature-card" data-lang="en" style="display:none">
+            <div class="feature-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="4" rx="1"/><path d="M9 4v4M15 4v4M4 12h16M4 16h10"/></svg></div>
+            <h3>Width Independent</h3>
+            <p>Nothing gets pushed off-screen. However narrow your menu bar or however many icons you install, it keeps working.</p>
+          </div>
+          <div class="feature-card" data-lang="en" style="display:none">
+            <div class="feature-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div>
+            <h3>No Waiting</h3>
+            <p>The list is prepared the moment your pointer reaches the icon, so the menu opens the instant you click.</p>
+          </div>
+          <div class="feature-card" data-lang="en" style="display:none">
+            <div class="feature-card-icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <h3>Signed and Notarized</h3>
+            <p>Signed with an Apple Developer ID and notarized. macOS refuses to launch it if a single byte changed after signing.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why not App Store -->
+      <section class="app-description">
+        <h2 data-ko="왜 맥 앱스토어에 없나" data-en="Why not on the Mac App Store">왜 맥 앱스토어에 없나</h2>
+        <div class="app-desc-content" data-lang="ko">
+          <p>맥 앱스토어는 App Sandbox가 필수입니다. 샌드박스 안에서는 다른 앱의 메뉴바 아이템을 읽는 호출이 전부 차단됩니다. 손쉬운 사용 권한을 허용해도 마찬가지입니다. 직접 측정한 결과, 샌드박스를 켜자 성공하던 열거 19건이 0건이 되었습니다.</p>
+          <p>Bartender · BetterTouchTool · Keyboard Maestro · Alfred가 모두 앱스토어 밖에서 배포되는 것과 같은 이유입니다.</p>
+        </div>
+        <div class="app-desc-content" data-lang="en" style="display:none">
+          <p>The Mac App Store requires App Sandbox, and inside the sandbox every call that reads another app's menu bar items is blocked — even with Accessibility permission granted. Measured directly: 19 successful enumerations without the sandbox dropped to 0 with it.</p>
+          <p>It is the same reason Bartender, BetterTouchTool, Keyboard Maestro, and Alfred all ship outside the store.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer" data-base="../"></footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

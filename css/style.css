@@ -468,6 +468,10 @@ img {
   background: linear-gradient(135deg, #E3F2FD, #E8EAF6);
 }
 
+.app-card-visual.menubarmore-bg {
+  background: linear-gradient(135deg, #ECEFF1, #E0E7FF);
+}
+
 .app-card-icon {
   width: 140px;
   height: 140px;

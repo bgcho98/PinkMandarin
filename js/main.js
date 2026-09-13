@@ -139,6 +139,7 @@
                 '<li><a href="' + base + 'math-move/index.html">Math Move</a></li>' +
                 '<li><a href="' + base + 'mallang-studio/index.html" data-ko="말랑 공방" data-en="Mallang Studio">말랑 공방</a></li>' +
                 '<li><a href="https://github.com/bgcho98/spring-config-table">Spring Config Table</a></li>' +
+                '<li><a href="' + base + 'menubarmore/index.html">MenuBarMore</a></li>' +
               '</ul>' +
             '</div>' +
             '<div>' +
