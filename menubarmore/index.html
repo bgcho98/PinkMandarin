@@ -50,21 +50,57 @@
           <div class="app-developer">PinkMandarin</div>
           <p class="app-tagline" data-ko="노치와 좁은 폭 때문에 가려진 메뉴바 아이콘에 접근하세요" data-en="Reach the menu bar icons hidden behind the notch or pushed off-screen">노치와 좁은 폭 때문에 가려진 메뉴바 아이콘에 접근하세요</p>
           <div class="app-detail-badges">
-            <span class="app-card-badge badge-dev" data-ko="준비 중" data-en="Coming Soon">준비 중</span>
+            <span class="app-card-badge badge-released" data-ko="공식 배포 v1.0.0" data-en="Released v1.0.0">공식 배포 v1.0.0</span>
             <span class="feature-tag">macOS 14.0+</span>
-            <span class="feature-tag">Universal</span>
-            <span class="feature-tag">$1</span>
+            <span class="feature-tag">Universal (Apple Silicon & Intel)</span>
+            <span class="feature-tag" data-ko="무료" data-en="Free">무료</span>
           </div>
         </div>
       </div>
 
-      <!-- Store Buttons -->
+      <!-- Store & Download Buttons -->
       <div class="app-detail-buttons">
-        <span class="btn-store">
-          <span class="btn-store-icon">&#9660;</span>
-          <span class="btn-store-text"><small data-ko="판매 페이지 준비 중" data-en="STORE COMING SOON">판매 페이지 준비 중</small>$1</span>
-        </span>
+        <a href="downloads/MenuBarMore-1.0.0.dmg" class="btn-store" download>
+          <span class="btn-store-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </span>
+          <span class="btn-store-text"><small data-ko="공증 완료 · 무료 다운로드" data-en="NOTARIZED · FREE DOWNLOAD">공증 완료 · 무료 다운로드</small>MenuBarMore v1.0.0 (.dmg)</span>
+        </a>
+        <a href="https://ko-fi.com/pinkmandarin" target="_blank" rel="noopener" class="btn-store">
+          <span class="btn-store-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </span>
+          <span class="btn-store-text"><small data-ko="개발자 후원하기" data-en="SUPPORT DEVELOPER">개발자 후원하기</small>Support via Ko-fi</span>
+        </a>
+        <a href="privacy.html" class="btn-store">
+          <span class="btn-store-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </span>
+          <span class="btn-store-text"><small data-ko="프라이버시" data-en="PRIVACY">프라이버시</small><span data-ko="개인정보처리방침" data-en="Privacy Policy">개인정보처리방침</span></span>
+        </a>
       </div>
+
+      <!-- Screenshots -->
+      <section class="app-screenshots" style="margin-bottom: 48px;">
+        <h2 data-ko="동작 화면" data-en="Screenshots">동작 화면</h2>
+        <div class="screenshots-scroll" style="display: flex; gap: 16px; overflow-x: auto; padding-bottom: 12px;">
+          <div class="screenshot-item" data-lang="ko" style="flex: 0 0 100%; max-width: 900px;">
+            <img src="../assets/menubarmore-ss-ko.png" alt="MenuBarMore 노치 스포트라이트 동작 화면" loading="lazy" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); border: 1px solid rgba(255,255,255,0.1);">
+          </div>
+          <div class="screenshot-item" data-lang="en" style="display:none; flex: 0 0 100%; max-width: 900px;">
+            <img src="../assets/menubarmore-ss-en.png" alt="MenuBarMore Notch Spotlight Screenshot" loading="lazy" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); border: 1px solid rgba(255,255,255,0.1);">
+          </div>
+        </div>
+      </section>
 
       <!-- Description -->
       <section class="app-description">
