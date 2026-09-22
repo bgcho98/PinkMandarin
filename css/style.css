@@ -509,6 +509,34 @@ img {
   color: #d97706;
 }
 
+/* 스토어가 아닌 직접 배포임을 알리는 중립 배지 */
+.badge-direct {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
+/* 앱스토어를 찾아 헤매지 않도록 다운로드 버튼 위에 두는 안내 */
+.distribution-notice {
+  background: #eef2ff;
+  border-left: 3px solid #4338ca;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #3730a3;
+}
+
+.distribution-notice a {
+  color: #4338ca;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+.app-card-badge + .app-card-badge {
+  margin-left: 6px;
+}
+
 .app-card-title {
   font-size: 1.5rem;
   font-weight: 800;

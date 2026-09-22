@@ -51,12 +51,20 @@
           <p class="app-tagline" data-ko="노치와 좁은 폭 때문에 가려진 메뉴바 아이콘에 접근하세요" data-en="Reach the menu bar icons hidden behind the notch or pushed off-screen">노치와 좁은 폭 때문에 가려진 메뉴바 아이콘에 접근하세요</p>
           <div class="app-detail-badges">
             <span class="app-card-badge badge-released" data-ko="공식 배포 v1.0.0" data-en="Released v1.0.0">공식 배포 v1.0.0</span>
+            <span class="app-card-badge badge-direct" data-ko="맥 앱스토어 미등록" data-en="Not on the Mac App Store">맥 앱스토어 미등록</span>
             <span class="feature-tag">macOS 14.0+</span>
             <span class="feature-tag">Universal (Apple Silicon & Intel)</span>
             <span class="feature-tag" data-ko="무료" data-en="Free">무료</span>
           </div>
         </div>
       </div>
+
+      <!-- Distribution Notice -->
+      <p class="distribution-notice"
+         data-ko-html="이 앱은 <strong>맥 앱스토어에서 받을 수 없습니다.</strong> 아래에서 직접 내려받으세요 — Apple Developer ID로 서명하고 공증받은 정식 배포본입니다. <a href=&quot;#why-not-app-store&quot;>앱스토어에 없는 이유</a>"
+         data-en-html="This app is <strong>not available on the Mac App Store.</strong> Download it directly below — it is signed with an Apple Developer ID and notarized. <a href=&quot;#why-not-app-store&quot;>Why it's not on the store</a>">
+        이 앱은 <strong>맥 앱스토어에서 받을 수 없습니다.</strong> 아래에서 직접 내려받으세요 — Apple Developer ID로 서명하고 공증받은 정식 배포본입니다. <a href="#why-not-app-store">앱스토어에 없는 이유</a>
+      </p>
 
       <!-- Store & Download Buttons -->
       <div class="app-detail-buttons">
@@ -177,7 +185,7 @@
       </section>
 
       <!-- Why not App Store -->
-      <section class="app-description">
+      <section class="app-description" id="why-not-app-store">
         <h2 data-ko="왜 맥 앱스토어에 없나" data-en="Why not on the Mac App Store">왜 맥 앱스토어에 없나</h2>
         <div class="app-desc-content" data-lang="ko">
           <p>맥 앱스토어는 App Sandbox가 필수입니다. 샌드박스 안에서는 다른 앱의 메뉴바 아이템을 읽는 호출이 전부 차단됩니다. 손쉬운 사용 권한을 허용해도 마찬가지입니다. 직접 측정한 결과, 샌드박스를 켜자 성공하던 열거 19건이 0건이 되었습니다.</p>
