@@ -111,7 +111,7 @@
     { ko: '사업자등록번호', en: 'Business Reg. No.', value: '287-35-01613', key: 'regNo' },
     { ko: '통신판매업 신고번호', en: 'Mail-Order Reg. No.', value: '' },
     { ko: '사업장 주소', en: 'Address', value: '' },
-    { ko: '이메일', en: 'Email', value: 'pinkmandarin.help@gmail.com', key: 'email' }
+    { ko: '이메일', en: 'Email', value: 'help@pinkmandarin.com', key: 'email' }
   ];
 
   function escapeHtml(s) {
@@ -160,7 +160,7 @@
     var bottomHtml =
       '<div class="footer-bottom">' +
         '<span>&copy; 2025-2026 PinkMandarin. All rights reserved.</span>' +
-        '<a href="mailto:pinkmandarin.help@gmail.com">pinkmandarin.help@gmail.com</a>' +
+        '<a href="mailto:help@pinkmandarin.com">help@pinkmandarin.com</a>' +
         '<a href="https://www.instagram.com/pinkmandarin.help/" target="_blank" rel="noopener">Instagram @pinkmandarin.help</a>' +
         '<a href="https://ko-fi.com/pinkmandarin" target="_blank" data-ko="후원하기" data-en="Support Us">후원하기</a>' +
       '</div>' +
