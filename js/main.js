@@ -108,7 +108,7 @@
   var BUSINESS = [
     { ko: '상호', en: 'Company', value: 'PinkMandarin' },
     { ko: '대표자', en: 'Representative', value: '' },
-    { ko: '사업자등록번호', en: 'Business Reg. No.', value: '287-35-01613', key: 'regNo' },
+    { ko: '사업자등록번호', en: 'Business Reg. No.', value: '287-35-01613' },
     { ko: '통신판매업 신고번호', en: 'Mail-Order Reg. No.', value: '' },
     { ko: '사업장 주소', en: 'Address', value: '' },
     { ko: '이메일', en: 'Email', value: 'help@pinkmandarin.com', key: 'email' }
@@ -123,11 +123,6 @@
   function bizValueHtml(item) {
     var v = escapeHtml(item.value);
     if (item.key === 'email') return '<a href="mailto:' + v + '">' + v + '</a>';
-    if (item.key === 'regNo') {
-      var digits = item.value.replace(/\D/g, '');
-      return v + ' <a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=' + digits +
-        '" target="_blank" rel="noopener" data-ko="[사업자정보확인]" data-en="[Verify]">[사업자정보확인]</a>';
-    }
     return v;
   }
 
