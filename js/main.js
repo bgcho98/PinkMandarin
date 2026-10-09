@@ -6,12 +6,21 @@
   // --- Language Toggle ---
   const LANG_KEY = 'pm-lang';
 
+  // A choice made with the KO/EN buttons wins; otherwise follow the browser locale
+  // (Korean for ko-*, English for everything else).
   function getLang() {
-    return localStorage.getItem(LANG_KEY) || 'ko';
+    var saved = null;
+    try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
+    if (saved === 'ko' || saved === 'en') return saved;
+    var prefs = navigator.languages && navigator.languages.length
+      ? navigator.languages : [navigator.language || 'ko'];
+    return /^ko\b/i.test(prefs[0]) ? 'ko' : 'en';
   }
 
-  function setLang(lang) {
-    localStorage.setItem(LANG_KEY, lang);
+  function setLang(lang, persist) {
+    if (persist) {
+      try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+    }
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-ko]').forEach(function (el) {
       el.textContent = lang === 'ko' ? el.dataset.ko : el.dataset.en;
@@ -94,6 +103,47 @@
     });
   }
 
+  // --- Business Info ---
+  // Single source for the About panel and the footer. Empty values are not shown.
+  var BUSINESS = [
+    { ko: '상호', en: 'Company', value: 'PinkMandarin' },
+    { ko: '대표자', en: 'Representative', value: '' },
+    { ko: '사업자등록번호', en: 'Business Reg. No.', value: '287-35-01613', key: 'regNo' },
+    { ko: '통신판매업 신고번호', en: 'Mail-Order Reg. No.', value: '' },
+    { ko: '사업장 주소', en: 'Address', value: '' },
+    { ko: '이메일', en: 'Email', value: 'pinkmandarin.help@gmail.com', key: 'email' }
+  ];
+
+  function escapeHtml(s) {
+    return s.replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function bizValueHtml(item) {
+    var v = escapeHtml(item.value);
+    if (item.key === 'email') return '<a href="mailto:' + v + '">' + v + '</a>';
+    if (item.key === 'regNo') {
+      var digits = item.value.replace(/\D/g, '');
+      return v + ' <a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=' + digits +
+        '" target="_blank" rel="noopener" data-ko="[사업자정보확인]" data-en="[Verify]">[사업자정보확인]</a>';
+    }
+    return v;
+  }
+
+  function filledBusiness() {
+    return BUSINESS.filter(function (item) { return item.value; });
+  }
+
+  function renderBusinessInfo() {
+    var dl = document.querySelector('[data-biz-info]');
+    if (!dl) return;
+    dl.innerHTML = filledBusiness().map(function (item) {
+      return '<dt data-ko="' + item.ko + '" data-en="' + item.en + '">' + item.ko + '</dt>' +
+        '<dd>' + bizValueHtml(item) + '</dd>';
+    }).join('');
+  }
+
   // --- Footer ---
   function renderFooter() {
     var footer = document.querySelector('footer.footer');
@@ -113,6 +163,12 @@
         '<a href="mailto:pinkmandarin.help@gmail.com">pinkmandarin.help@gmail.com</a>' +
         '<a href="https://www.instagram.com/pinkmandarin.help/" target="_blank" rel="noopener">Instagram @pinkmandarin.help</a>' +
         '<a href="https://ko-fi.com/pinkmandarin" target="_blank" data-ko="후원하기" data-en="Support Us">후원하기</a>' +
+      '</div>' +
+      '<div class="footer-biz">' +
+        filledBusiness().filter(function (item) { return item.key !== 'email'; }).map(function (item) {
+          return '<span><span data-ko="' + item.ko + '" data-en="' + item.en + '">' + item.ko + '</span> ' +
+            escapeHtml(item.value) + '</span>';
+        }).join('') +
       '</div>';
 
     footer.insertAdjacentHTML('beforebegin', charsHtml);
@@ -167,10 +223,11 @@
   // --- Init ---
   document.addEventListener('DOMContentLoaded', function () {
     renderFooter();
+    renderBusinessInfo();
     // Language buttons
     document.querySelectorAll('.lang-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        setLang(btn.dataset.lang);
+        setLang(btn.dataset.lang, true);
       });
     });
 
