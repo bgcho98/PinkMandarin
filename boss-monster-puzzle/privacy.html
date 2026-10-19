@@ -58,6 +58,8 @@
             <tr><td>마왕 이름</td><td>이용자가 게임에서 직접 정할 때</td></tr>
             <tr><td>게임 진행 데이터 (골드, 군단, 몬스터, 마왕, 레벨, 방어 기록)</td><td>게임을 하는 동안 자동으로 만들어짐</td></tr>
             <tr><td>초대 기록 (초대한 사람의 계정 식별자, 초대받은 사람의 마왕 이름, 보상 지급 여부, 기록 시각)</td><td>친구의 공유 글이나 초대로 시작한 이용자가 첫 방어에 성공할 때</td></tr>
+            <tr><td>앱 범위 사용자 ID (페이스북이 제공하는 경우에만)</td><td>로그인할 때. 페이스북에서 온 데이터 삭제 요청이 누구의 것인지 찾는 데만 씁니다</td></tr>
+            <tr><td>삭제 기록 (계정 식별자, 삭제 시각)</td><td>데이터를 지울 때. 지운 기록이 기기에서 서버로 다시 올라가지 않게 합니다</td></tr>
             <tr><td>접속 기록 (IP 주소 등)</td><td>로그인·저장 요청을 처리하는 과정에서 Google Firebase가 자동으로 처리</td></tr>
           </table>
           <p>게임은 페이스북 이름·프로필 사진·이메일·연락처·위치를 받지 않으며, 광고나 행동 분석 도구를 포함하지 않습니다. 친구 랭킹을 보여 줄 때 이 게임을 하는 페이스북 친구의 게임 전용 ID를 페이스북에서 받지만, 이 목록을 서버에 저장하지 않습니다.</p>
@@ -81,6 +83,7 @@
           <ul>
             <li><strong>서버 데이터:</strong> 이용자가 삭제를 요청할 때까지 보관하고, 요청을 받으면 지체 없이 파기합니다.</li>
             <li><strong>기기 데이터:</strong> 게임 진행 데이터 사본을 기기의 브라우저 저장소에 둡니다.</li>
+            <li><strong>삭제 기록:</strong> 계정 식별자와 삭제 시각만 남기며, 지운 데이터가 다시 올라가는 것을 막는 데만 씁니다.</li>
             <li>1년 동안 접속하지 않은 계정은 이 페이지에 미리 알린 뒤 삭제할 수 있습니다.</li>
           </ul>
 
@@ -88,7 +91,7 @@
           <p>회사는 로그인과 데이터 저장을 위해 아래 업체의 서비스를 씁니다. 개인정보를 제3자에게 판매하거나 제공하지 않습니다.</p>
           <table>
             <tr><th>받는 자</th><th>Google LLC (Google Firebase)</th></tr>
-            <tr><td>이전되는 항목</td><td>게임 전용 플레이어 ID, 마왕 이름, 게임 진행 데이터, 초대 기록, 접속 기록</td></tr>
+            <tr><td>이전되는 항목</td><td>게임 전용 플레이어 ID, 앱 범위 사용자 ID, 마왕 이름, 게임 진행 데이터, 초대 기록, 삭제 기록, 접속 기록</td></tr>
             <tr><td>이전 국가·방법</td><td>미국. 게임 데이터는 미국 멀티 리전(nam5)에, 로그인 처리는 미국 리전(us-central1)에서 처리합니다. 로그인·저장 요청 때마다 암호화된 네트워크로 전송합니다.</td></tr>
             <tr><td>목적</td><td>로그인 처리와 게임 데이터 저장</td></tr>
             <tr><td>보유 기간</td><td>삭제 요청 시까지</td></tr>
@@ -98,6 +101,7 @@
           <h2>6. 이용자의 권리</h2>
           <ul>
             <li>개인정보 열람·정정·삭제·처리 정지를 아래 이메일로 요청할 수 있으며, 회사는 지체 없이 처리합니다.</li>
+            <li>페이스북에서 게임을 지우고 데이터 삭제를 요청하면 서버 데이터를 자동으로 지웁니다.</li>
             <li>삭제 방법은 <a href="data-deletion.html">데이터 삭제 안내</a>를 참고하세요.</li>
           </ul>
 
@@ -139,6 +143,8 @@
             <tr><td>Demon Lord name</td><td>When you choose it in the Game</td></tr>
             <tr><td>Game progress data (gold, legion, monsters, Demon Lords, level, defense records)</td><td>Created automatically while you play</td></tr>
             <tr><td>Invite records (the inviter's account identifier, the invitee's Demon Lord name, reward status, time)</td><td>When a player who started from a friend's post or invite wins their first defense</td></tr>
+            <tr><td>App-scoped user ID (only if Facebook provides it)</td><td>At sign-in. Used only to match data deletion requests sent by Facebook</td></tr>
+            <tr><td>Deletion record (account identifier, deletion time)</td><td>When your data is deleted. Prevents deleted data from being uploaded again from your device</td></tr>
             <tr><td>Access logs (such as IP address)</td><td>Processed automatically by Google Firebase when handling sign-in and save requests</td></tr>
           </table>
           <p>The Game does not receive your Facebook name, profile picture, email, contacts, or location, and contains no ads or behavioral analytics. To show the friend ranking, the Game receives from Facebook the game-scoped IDs of your Facebook friends who also play, but it does not store this list on the server.</p>
@@ -162,6 +168,7 @@
           <ul>
             <li><strong>Server data:</strong> Kept until you request deletion, then destroyed without delay.</li>
             <li><strong>Device data:</strong> A copy of your game progress is kept in your device's browser storage.</li>
+            <li><strong>Deletion record:</strong> Only the account identifier and deletion time are kept, used solely to stop deleted data from being uploaded again.</li>
             <li>Accounts not used for one year may be deleted after prior notice on this page.</li>
           </ul>
 
@@ -169,7 +176,7 @@
           <p>We use the following service for sign-in and data storage. We do not sell or provide your personal information to third parties.</p>
           <table>
             <tr><th>Recipient</th><th>Google LLC (Google Firebase)</th></tr>
-            <tr><td>Items</td><td>Game-scoped player ID, Demon Lord name, game progress data, invite records, access logs</td></tr>
+            <tr><td>Items</td><td>Game-scoped player ID, app-scoped user ID, Demon Lord name, game progress data, invite records, deletion records, access logs</td></tr>
             <tr><td>Location / Method</td><td>United States. Game data is stored in the US multi-region (nam5), and sign-in is processed in the US region (us-central1). Data is transmitted over an encrypted network with each sign-in or save request.</td></tr>
             <tr><td>Purpose</td><td>Sign-in processing and game data storage</td></tr>
             <tr><td>Retention</td><td>Until a deletion request</td></tr>
@@ -179,6 +186,7 @@
           <h2>6. Your Rights</h2>
           <ul>
             <li>You may request access, correction, deletion, or suspension of processing by email; we will handle it without delay.</li>
+            <li>If you remove the Game on Facebook and request data deletion, we delete your server data automatically.</li>
             <li>See the <a href="data-deletion.html">Data Deletion guide</a> for how to delete your data.</li>
           </ul>
 
