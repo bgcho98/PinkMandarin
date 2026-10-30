@@ -46,15 +46,17 @@
       <div data-lang="ko">
         <div class="legal-header">
           <h1>개인정보처리방침</h1>
-          <p class="meta">내가 보스 몬스터다 - 퍼즐 &middot; 시행일: 2026년 10월 19일</p>
+          <p class="meta">내가 보스 몬스터다 - 퍼즐 &middot; 시행일: 2026년 10월 30일 (원스토어·토스 버전 추가)</p>
         </div>
         <div class="legal-content">
-          <p>PinkMandarin(이하 "회사")은 페이스북 인스턴트 게임 내가 보스 몬스터다 - 퍼즐(이하 "게임") 이용자의 개인정보를 중요하게 여기며, 「개인정보 보호법」 등 관련 법령을 지킵니다.</p>
+          <p>PinkMandarin(이하 "회사")은 페이스북 인스턴트 게임, 원스토어, 토스(출시 예정)로 제공하는 내가 보스 몬스터다 - 퍼즐(이하 "게임") 이용자의 개인정보를 중요하게 여기며, 「개인정보 보호법」 등 관련 법령을 지킵니다.</p>
 
           <h2>1. 수집하는 개인정보</h2>
           <table>
             <tr><th>수집 항목</th><th>수집 시점·방법</th></tr>
-            <tr><td>게임 전용 플레이어 ID (페이스북이 이 게임에만 주는 ID로, 페이스북 계정 ID와 다릅니다)</td><td>게임을 시작할 때 페이스북 인스턴트 게임이 전달</td></tr>
+            <tr><td>게임 전용 플레이어 ID (페이스북 버전. 페이스북이 이 게임에만 주는 ID로, 페이스북 계정 ID와 다릅니다)</td><td>게임을 시작할 때 페이스북 인스턴트 게임이 전달</td></tr>
+            <tr><td>익명 계정 ID (원스토어 버전. 로그인 없이 시작할 때 Google Firebase가 만드는 무작위 ID로, 원스토어 계정과 연결되지 않습니다)</td><td>게임을 처음 시작할 때 자동으로 발급</td></tr>
+            <tr><td>토스 계정 식별값 (토스 버전. 토스가 이 게임에 주는 익명 키를 한 방향 암호화(SHA-256)해 만든 ID입니다. 익명 키 원문은 저장하지 않습니다)</td><td>게임을 시작할 때 토스 로그인으로 전달</td></tr>
             <tr><td>마왕 이름</td><td>이용자가 게임에서 직접 정할 때</td></tr>
             <tr><td>게임 진행 데이터 (골드, 군단, 몬스터, 마왕, 레벨, 방어 기록)</td><td>게임을 하는 동안 자동으로 만들어짐</td></tr>
             <tr><td>초대 기록 (초대한 사람의 계정 식별자, 초대받은 사람의 마왕 이름, 보상 지급 여부, 기록 시각)</td><td>친구의 공유 글이나 초대로 시작한 이용자가 첫 방어에 성공할 때</td></tr>
@@ -62,7 +64,7 @@
             <tr><td>삭제 기록 (계정 식별자, 삭제 시각)</td><td>데이터를 지울 때. 지운 기록이 기기에서 서버로 다시 올라가지 않게 합니다</td></tr>
             <tr><td>접속 기록 (IP 주소 등)</td><td>로그인·저장 요청을 처리하는 과정에서 Google Firebase가 자동으로 처리</td></tr>
           </table>
-          <p>게임은 페이스북 이름·프로필 사진·이메일·연락처·위치를 받지 않으며, 광고나 행동 분석 도구를 포함하지 않습니다. 친구 랭킹을 보여 줄 때 이 게임을 하는 페이스북 친구의 게임 전용 ID를 페이스북에서 받지만, 이 목록을 서버에 저장하지 않습니다.</p>
+          <p>게임은 페이스북 이름·프로필 사진·이메일·연락처·위치를 받지 않으며, 광고나 행동 분석 도구를 포함하지 않습니다. 친구 랭킹을 보여 줄 때 이 게임을 하는 페이스북 친구의 게임 전용 ID를 페이스북에서 받지만, 이 목록을 서버에 저장하지 않습니다. 원스토어 버전과 토스 버전은 원스토어·토스 계정의 이름·이메일·전화번호 등을 받지 않습니다.</p>
 
           <h2>2. 수집·이용 목적</h2>
           <ul>
@@ -76,7 +78,7 @@
           <h2>3. 다른 이용자에게 보이는 정보</h2>
           <ul>
             <li>랭킹에는 마왕 이름, 군단, 마왕 종류, 레벨, 최고 방어 기록이 다른 이용자에게 보입니다.</li>
-            <li>공유 글과 초대 메시지는 이용자가 페이스북 화면에서 직접 보냅니다. 회사는 이용자 대신 글이나 메시지를 보내지 않습니다.</li>
+            <li>공유 글과 초대 메시지는 이용자가 페이스북·토스 화면에서 직접 보냅니다. 회사는 이용자 대신 글이나 메시지를 보내지 않습니다.</li>
           </ul>
 
           <h2>4. 보유 및 이용 기간</h2>
@@ -90,13 +92,21 @@
           <h2>5. 개인정보 처리 위탁 및 국외 이전</h2>
           <p>회사는 로그인과 데이터 저장을 위해 아래 업체의 서비스를 씁니다. 개인정보를 제3자에게 판매하거나 제공하지 않습니다.</p>
           <table>
-            <tr><th>받는 자</th><th>Google LLC (Google Firebase)</th></tr>
+            <tr><th>받는 자</th><th>Google LLC (Google Firebase) &middot; 페이스북 버전</th></tr>
             <tr><td>이전되는 항목</td><td>게임 전용 플레이어 ID, 앱 범위 사용자 ID, 마왕 이름, 게임 진행 데이터, 초대 기록, 삭제 기록, 접속 기록</td></tr>
             <tr><td>이전 국가·방법</td><td>미국. 게임 데이터는 미국 멀티 리전(nam5)에, 로그인 처리는 미국 리전(us-central1)에서 처리합니다. 로그인·저장 요청 때마다 암호화된 네트워크로 전송합니다.</td></tr>
             <tr><td>목적</td><td>로그인 처리와 게임 데이터 저장</td></tr>
             <tr><td>보유 기간</td><td>삭제 요청 시까지</td></tr>
           </table>
-          <p>게임은 Meta Platforms, Inc.가 운영하는 페이스북 인스턴트 게임 플랫폼에서 실행됩니다. 페이스북 계정과 플랫폼 이용 정보는 <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Meta 개인정보처리방침</a>을, Google의 처리는 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a>을 따릅니다.</p>
+          <p>원스토어 버전과 토스 버전은 게임 데이터 저장과 서버 처리를 대한민국 서울 리전(asia-northeast3)에서 합니다. 다만 계정 발급과 로그인 유지는 Google Firebase Authentication이 처리하므로 아래 항목이 미국으로 이전됩니다.</p>
+          <table>
+            <tr><th>받는 자</th><th>Google LLC (Google Firebase Authentication) &middot; 원스토어·토스 버전</th></tr>
+            <tr><td>이전되는 항목</td><td>익명 계정 ID(원스토어), 토스 계정 식별값(토스), 접속 기록</td></tr>
+            <tr><td>이전 국가·방법</td><td>미국. 게임을 시작하거나 로그인을 이어 갈 때 암호화된 네트워크로 전송합니다.</td></tr>
+            <tr><td>목적</td><td>계정 발급과 로그인 유지</td></tr>
+            <tr><td>보유 기간</td><td>삭제 요청 시까지</td></tr>
+          </table>
+          <p>페이스북 버전은 Meta Platforms, Inc.가 운영하는 페이스북 인스턴트 게임 플랫폼에서, 원스토어 버전은 원스토어 주식회사가 운영하는 원스토어 앱에서, 토스 버전은 주식회사 비바리퍼블리카가 운영하는 토스 앱에서 실행됩니다. 플랫폼 계정과 이용 정보는 <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Meta 개인정보처리방침</a>, <a href="https://m.onestore.co.kr/ko-kr/web/clause/page.omp?termsCode=US010605" target="_blank" rel="noopener">원스토어 개인정보처리방침</a>, <a href="https://toss.im/privacy-policy" target="_blank" rel="noopener">토스 개인정보처리방침</a>을, Google의 처리는 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a>을 따릅니다.</p>
 
           <h2>6. 이용자의 권리</h2>
           <ul>
@@ -107,7 +117,7 @@
           <h2>7. 안전성 확보 조치</h2>
           <ul>
             <li>모든 통신은 암호화(HTTPS)됩니다.</li>
-            <li>로그인할 때 페이스북이 서명한 플레이어 정보를 서버에서 확인합니다.</li>
+            <li>페이스북 버전은 로그인할 때 페이스북이 서명한 플레이어 정보를, 토스 버전은 토스 서버와 상호 인증(mTLS)으로 받은 사용자 정보를 서버에서 확인합니다.</li>
             <li>서버 보안 규칙으로 이용자는 자기 계정의 진행 데이터만 읽고 쓸 수 있습니다.</li>
           </ul>
 
@@ -130,15 +140,17 @@
       <div data-lang="en" style="display:none">
         <div class="legal-header">
           <h1>Privacy Policy</h1>
-          <p class="meta">I Am The Boss Monster: Puzzle &middot; Effective: October 19, 2026</p>
+          <p class="meta">I Am The Boss Monster: Puzzle &middot; Effective: October 30, 2026 (ONE store and Toss versions added)</p>
         </div>
         <div class="legal-content">
-          <p>PinkMandarin ("the Company") values the personal information of users of the Facebook Instant Game I Am The Boss Monster: Puzzle ("the Game") and complies with the Personal Information Protection Act of Korea and related laws.</p>
+          <p>PinkMandarin ("the Company") values the personal information of users of I Am The Boss Monster: Puzzle ("the Game"), offered on Facebook Instant Games, ONE store, and Toss (coming soon), and complies with the Personal Information Protection Act of Korea and related laws.</p>
 
           <h2>1. Information We Collect</h2>
           <table>
             <tr><th>Information</th><th>When / How</th></tr>
-            <tr><td>Game-scoped player ID (an ID Facebook issues for this game only; it is not your Facebook account ID)</td><td>Provided by Facebook Instant Games when you start the Game</td></tr>
+            <tr><td>Game-scoped player ID (Facebook version; an ID Facebook issues for this game only; it is not your Facebook account ID)</td><td>Provided by Facebook Instant Games when you start the Game</td></tr>
+            <tr><td>Anonymous account ID (ONE store version; a random ID Google Firebase creates when you start without signing in; it is not linked to your ONE store account)</td><td>Issued automatically when you first start the Game</td></tr>
+            <tr><td>Toss account identifier (Toss version; an ID made by one-way hashing (SHA-256) the anonymous key Toss issues for this game. The anonymous key itself is not stored)</td><td>Provided through Toss sign-in when you start the Game</td></tr>
             <tr><td>Demon Lord name</td><td>When you choose it in the Game</td></tr>
             <tr><td>Game progress data (gold, legion, monsters, Demon Lords, level, defense records)</td><td>Created automatically while you play</td></tr>
             <tr><td>Invite records (the inviter's account identifier, the invitee's Demon Lord name, reward status, time)</td><td>When a player who started from a friend's post or invite wins their first defense</td></tr>
@@ -146,7 +158,7 @@
             <tr><td>Deletion record (account identifier, deletion time)</td><td>When your data is deleted. Prevents deleted data from being uploaded again from your device</td></tr>
             <tr><td>Access logs (such as IP address)</td><td>Processed automatically by Google Firebase when handling sign-in and save requests</td></tr>
           </table>
-          <p>The Game does not receive your Facebook name, profile picture, email, contacts, or location, and contains no ads or behavioral analytics. To show the friend ranking, the Game receives from Facebook the game-scoped IDs of your Facebook friends who also play, but it does not store this list on the server.</p>
+          <p>The Game does not receive your Facebook name, profile picture, email, contacts, or location, and contains no ads or behavioral analytics. To show the friend ranking, the Game receives from Facebook the game-scoped IDs of your Facebook friends who also play, but it does not store this list on the server. The ONE store and Toss versions do not receive your ONE store or Toss account name, email, phone number, or similar information.</p>
 
           <h2>2. Purpose of Use</h2>
           <ul>
@@ -160,7 +172,7 @@
           <h2>3. Information Visible to Other Players</h2>
           <ul>
             <li>Rankings show your Demon Lord name, legion, Demon Lord type, level, and best defense record to other players.</li>
-            <li>You send share posts and invite messages yourself through Facebook's screens. The Company never posts or sends messages on your behalf.</li>
+            <li>You send share posts and invite messages yourself through Facebook's or Toss's screens. The Company never posts or sends messages on your behalf.</li>
           </ul>
 
           <h2>4. Retention Period</h2>
@@ -174,13 +186,21 @@
           <h2>5. Processors and International Transfer</h2>
           <p>We use the following service for sign-in and data storage. We do not sell or provide your personal information to third parties.</p>
           <table>
-            <tr><th>Recipient</th><th>Google LLC (Google Firebase)</th></tr>
+            <tr><th>Recipient</th><th>Google LLC (Google Firebase) &middot; Facebook version</th></tr>
             <tr><td>Items</td><td>Game-scoped player ID, app-scoped user ID, Demon Lord name, game progress data, invite records, deletion records, access logs</td></tr>
             <tr><td>Location / Method</td><td>United States. Game data is stored in the US multi-region (nam5), and sign-in is processed in the US region (us-central1). Data is transmitted over an encrypted network with each sign-in or save request.</td></tr>
             <tr><td>Purpose</td><td>Sign-in processing and game data storage</td></tr>
             <tr><td>Retention</td><td>Until a deletion request</td></tr>
           </table>
-          <p>The Game runs on the Facebook Instant Games platform operated by Meta Platforms, Inc. Your Facebook account and platform usage are governed by the <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Meta Privacy Policy</a>, and Google's processing by the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
+          <p>The ONE store and Toss versions store game data and run server processing in the Seoul, Korea region (asia-northeast3). However, Google Firebase Authentication issues accounts and keeps you signed in, so the items below are transferred to the United States.</p>
+          <table>
+            <tr><th>Recipient</th><th>Google LLC (Google Firebase Authentication) &middot; ONE store and Toss versions</th></tr>
+            <tr><td>Items</td><td>Anonymous account ID (ONE store), Toss account identifier (Toss), access logs</td></tr>
+            <tr><td>Location / Method</td><td>United States. Transmitted over an encrypted network when you start the Game or stay signed in.</td></tr>
+            <tr><td>Purpose</td><td>Issuing accounts and keeping you signed in</td></tr>
+            <tr><td>Retention</td><td>Until a deletion request</td></tr>
+          </table>
+          <p>The Facebook version runs on the Facebook Instant Games platform operated by Meta Platforms, Inc., the ONE store version runs in the ONE store app operated by ONE store Co., Ltd., and the Toss version runs in the Toss app operated by Viva Republica Inc. Your platform accounts and usage are governed by the <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Meta Privacy Policy</a>, the <a href="https://m.onestore.co.kr/ko-kr/web/clause/page.omp?termsCode=US010605" target="_blank" rel="noopener">ONE store Privacy Policy</a>, and the <a href="https://toss.im/privacy-policy" target="_blank" rel="noopener">Toss Privacy Policy</a>, and Google's processing by the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
 
           <h2>6. Your Rights</h2>
           <ul>
@@ -191,7 +211,7 @@
           <h2>7. Security Measures</h2>
           <ul>
             <li>All communication is encrypted (HTTPS).</li>
-            <li>At sign-in, the server verifies the player information signed by Facebook.</li>
+            <li>At sign-in, the server verifies the player information signed by Facebook (Facebook version) or the user information received from Toss over mutual TLS (Toss version).</li>
             <li>Server security rules allow each user to read and write only their own progress data.</li>
           </ul>
 
