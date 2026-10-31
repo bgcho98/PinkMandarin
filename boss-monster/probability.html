@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>확률 안내 - 내가 보스 몬스터다 | PinkMandarin</title>
+  <meta name="description" content="내가 보스 몬스터다 확률 안내 / Probability Information">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* 확률 안내 전용 (tools/probability_page.py). 공용 css/style.css는 건드리지 않음 */
+    .prob-content h4 { font-size: 1rem; font-weight: 700; margin: 28px 0 8px; color: var(--text); }
+    .prob-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 12px 0 16px; max-width: 100%; }
+    .legal-content .prob-scroll table { margin: 0; }
+    .legal-content .prob-table th, .legal-content .prob-table td { padding: 8px 12px; vertical-align: top; }
+    .legal-content .prob-table .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .legal-content .prob-table small { color: var(--text-light); font-size: 0.8rem; }
+    .legal-content .prob-table .nowrap { white-space: nowrap; }
+    .legal-content .prob-table tr.prob-grade td { background: #FDF2F8; color: var(--text); font-weight: 600; }
+    .legal-content .prob-table tr.prob-group td { background: #F9FAFB; color: var(--text); font-weight: 700; padding-top: 10px; }
+    .legal-content details.prob-details { border: 1px solid var(--border); border-radius: var(--radius-sm); margin: 8px 0; background: var(--bg-white); }
+    .legal-content details.prob-details > summary { cursor: pointer; padding: 12px 16px; font-weight: 600; color: var(--text); }
+    .legal-content details.prob-details[open] > summary { border-bottom: 1px solid var(--border); }
+    .legal-content details.prob-details .prob-scroll { margin: 0; }
+    .prob-note { background: #F5F3FF; border-left: 4px solid #8B5CF6; padding: 12px 16px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 16px 0; }
+    .legal-content .prob-note p { margin: 0; color: #4C1D95; font-size: 0.9rem; }
+    .prob-toc { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 20px; margin-bottom: 8px; background: var(--bg-white); }
+    .legal-content .prob-toc p { margin-bottom: 4px; color: var(--text); }
+    .legal-content .prob-toc ul { margin: 0; padding-left: 0; list-style: none; }
+    .legal-content .prob-toc li { margin-bottom: 2px; }
+    @media (max-width: 480px) {
+      .legal-content .prob-table th, .legal-content .prob-table td { padding: 6px 8px; font-size: 0.82rem; }
+      .legal-content details.prob-details > summary { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 이 파일은 boss_monster 저장소의 tools/probability_page.py가 game/tools/probability_export.gd 결과(2026-10-31T14:59:22Z)로 만듭니다. 손으로 고치지 말고 도구를 다시 돌리세요. -->
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon"><img src="../assets/logo.png" alt="PinkMandarin"></div>
+        <span class="gradient-text">PinkMandarin</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html" data-ko="홈" data-en="Home">홈</a>
+        <a href="../index.html#apps" data-ko="앱" data-en="Apps">앱</a>
+        <a href="../index.html#contact" data-ko="문의" data-en="Contact">문의</a>
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="ko">KO</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </nav>
+      <div class="mobile-controls">
+        <div class="lang-toggle mobile-lang">
+          <button class="lang-btn active" data-lang="ko">KO</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button class="mobile-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="legal-page">
+    <div class="container">
+      <a href="index.html" class="legal-back">&larr; <span data-ko="내가 보스 몬스터다로 돌아가기" data-en="Back to I Am The Boss Monster">내가 보스 몬스터다로 돌아가기</span></a>
+
+<!-- Korean -->
+<div data-lang="ko">
+<div class="legal-header">
+  <h1>확률 안내</h1>
+  <p class="meta">내가 보스 몬스터다 &middot; 기준일: 2026년 11월 1일 &middot; 게임 버전 0.4.2 데이터</p>
+</div>
+<div class="legal-content prob-content">
+<nav class="prob-toc" aria-label="목차"><p><strong>목차</strong></p>
+<ul>
+  <li><a href="#ko-overview">1. 개요</a></li>
+  <li><a href="#ko-summon">2. 부하 소환 확률 (소환 제단·상점 채용 공통)</a></li>
+  <li><a href="#ko-shop">3. 상점 부하 채용·오늘의 특가</a></li>
+  <li><a href="#ko-gear">4. 장비 상자 확률</a></li>
+  <li><a href="#ko-contact">5. 확률 변경과 문의</a></li>
+</ul></nav>
+
+<h2 id="ko-overview">1. 개요</h2>
+<p>골드는 게임에서 얻을 수도 있고, 상점 [골드] 탭에서 유료로 살 수도 있습니다. 게임은 산 골드와 얻은 골드를 구분하지 않으므로, 골드로 사는 상품 가운데 결과가 무작위로 정해지는 상품을 모두 유상 확률형 상품으로 보고 확률을 공개합니다.</p>
+<p>이 페이지의 확률은 게임이 실제로 뽑을 때 쓰는 데이터와 계산 함수로 자동으로 만들었습니다. 게임 안에서도 소환 제단의 확률 창과 상점 상품의 (i) 버튼에서 같은 확률을 볼 수 있습니다.</p>
+<div class="prob-note"><p>표시한 확률은 소수 셋째 자리에서 반올림했습니다. 그래서 표의 값을 더하면 100%와 조금 다를 수 있습니다. 반올림 전 값의 합은 표마다 100%입니다.</p></div>
+<h3>확률을 공개하는 상품</h3>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>상품</th><th class="num">가격</th><th>내용</th><th class="nowrap">확률</th></tr></thead>
+<tbody>
+<tr class="prob-group"><td colspan="4">소환 제단</td></tr>
+<tr><td>일반 소환 1회</td><td class="num">50골드</td><td>부하 1명<br><small>마왕성 Lv.1부터</small></td><td class="nowrap"><a href="#ko-summon-common">보기</a></td></tr>
+<tr><td>일반 소환 10연</td><td class="num">450골드</td><td>부하 10명 (마지막 1명 레어 이상 보장)<br><small>마왕성 Lv.1부터</small></td><td class="nowrap"><a href="#ko-summon-common">보기</a></td></tr>
+<tr><td>레어 소환 1회</td><td class="num">200골드</td><td>부하 1명<br><small>마왕성 Lv.2부터</small></td><td class="nowrap"><a href="#ko-summon-rare">보기</a></td></tr>
+<tr><td>레어 소환 10연</td><td class="num">1,800골드</td><td>부하 10명 (마지막 1명 에픽 이상 보장)<br><small>마왕성 Lv.2부터</small></td><td class="nowrap"><a href="#ko-summon-rare">보기</a></td></tr>
+<tr><td>에픽 소환 1회</td><td class="num">800골드</td><td>부하 1명<br><small>마왕성 Lv.4부터</small></td><td class="nowrap"><a href="#ko-summon-epic">보기</a></td></tr>
+<tr><td>에픽 소환 10연</td><td class="num">7,200골드</td><td>부하 10명 (마지막 1명 레전드 이상 보장)<br><small>마왕성 Lv.4부터</small></td><td class="nowrap"><a href="#ko-summon-epic">보기</a></td></tr>
+<tr><td>레전드 소환 1회</td><td class="num">3,000골드</td><td>부하 1명<br><small>마왕성 Lv.7부터</small></td><td class="nowrap"><a href="#ko-summon-legend">보기</a></td></tr>
+<tr><td>레전드 소환 10연</td><td class="num">27,000골드</td><td>부하 10명<br><small>마왕성 Lv.7부터</small></td><td class="nowrap"><a href="#ko-summon-legend">보기</a></td></tr>
+<tr class="prob-group"><td colspan="4">별똥별 암시장 · 부하 채용</td></tr>
+<tr><td>급구 채용 공고</td><td class="num">100골드</td><td>일반 소환 확률로 부하 1명<br><small>마왕성 Lv.1부터 · 하루 10번</small></td><td class="nowrap"><a href="#ko-summon-common">보기</a></td></tr>
+<tr><td>경력직 스카우트</td><td class="num">600골드</td><td>레어 소환 확률로 부하 1명<br><small>마왕성 Lv.2부터 · 하루 3번</small></td><td class="nowrap"><a href="#ko-summon-rare">보기</a></td></tr>
+<tr><td>임원 스카우트</td><td class="num">2,000골드</td><td>에픽 소환 확률로 부하 1명<br><small>마왕성 Lv.4부터 · 하루 1번</small></td><td class="nowrap"><a href="#ko-summon-epic">보기</a></td></tr>
+<tr><td>단체 채용 박람회</td><td class="num">500골드</td><td>일반 소환 확률로 부하 10명, 마지막 1명 레어 이상 보장<br><small>마왕성 Lv.3부터 · 하루 1번</small></td><td class="nowrap"><a href="#ko-summon-common">보기</a></td></tr>
+<tr class="prob-group"><td colspan="4">별똥별 암시장 · 장비 상자</td></tr>
+<tr><td>대장간 뒷문 상자</td><td class="num">500골드</td><td>장비 1개 (마왕성 레벨 등급 확률)<br><small>마왕성 Lv.1부터 · 하루 3번</small></td><td class="nowrap"><a href="#ko-gear-any">보기</a></td></tr>
+<tr><td>별똥별 빛 상자</td><td class="num">800골드</td><td>장비 1개 (레어 이상)<br><small>마왕성 Lv.3부터 · 하루 2번</small></td><td class="nowrap"><a href="#ko-gear-rare">보기</a></td></tr>
+<tr><td>운석 상자</td><td class="num">2,400골드</td><td>장비 1개 (에픽 이상)<br><small>마왕성 Lv.6부터 · 하루 1번</small></td><td class="nowrap"><a href="#ko-gear-epic">보기</a></td></tr>
+<tr class="prob-group"><td colspan="4">별똥별 암시장 · 오늘의 특가</td></tr>
+<tr><td>급구 채용 공고 할인</td><td class="num">60골드<br><small>정가 100</small></td><td>일반 소환 확률로 부하 1명<br><small>마왕성 Lv.1부터 · 하루 1번</small></td><td class="nowrap"><a href="#ko-summon-common">보기</a></td></tr>
+<tr><td>급구 채용 3명 묶음</td><td class="num">240골드<br><small>정가 300</small></td><td>일반 소환 확률로 부하 3명, 마지막 1명 레어 이상 보장<br><small>마왕성 Lv.1부터 · 하루 1번</small></td><td class="nowrap"><a href="#ko-summon-common">보기</a></td></tr>
+<tr><td>단체 채용 박람회 할인</td><td class="num">400골드<br><small>정가 500</small></td><td>일반 소환 확률로 부하 10명, 마지막 1명 레어 이상 보장<br><small>마왕성 Lv.3부터 · 하루 1번</small></td><td class="nowrap"><a href="#ko-summon-common">보기</a></td></tr>
+<tr><td>뒷문 상자 2개 묶음</td><td class="num">800골드<br><small>정가 1,000</small></td><td>장비 2개 (마왕성 레벨 등급 확률)<br><small>마왕성 Lv.1부터 · 하루 1번</small></td><td class="nowrap"><a href="#ko-gear-any">보기</a></td></tr>
+<tr><td>경력직 2명 묶음</td><td class="num">900골드<br><small>정가 1,200</small></td><td>레어 소환 확률로 부하 2명, 마지막 1명 에픽 이상 보장<br><small>마왕성 Lv.2부터 · 하루 1번</small></td><td class="nowrap"><a href="#ko-summon-rare">보기</a></td></tr>
+<tr><td>임원 스카우트 할인</td><td class="num">1,400골드<br><small>정가 2,000</small></td><td>에픽 소환 확률로 부하 1명<br><small>마왕성 Lv.4부터 · 하루 1번</small></td><td class="nowrap"><a href="#ko-summon-epic">보기</a></td></tr>
+<tr><td>별똥별 빛 상자 할인</td><td class="num">500골드<br><small>정가 800</small></td><td>장비 1개 (레어 이상)<br><small>마왕성 Lv.3부터 · 하루 1번</small></td><td class="nowrap"><a href="#ko-gear-rare">보기</a></td></tr>
+<tr><td>운석 상자 할인</td><td class="num">1,800골드<br><small>정가 2,400</small></td><td>장비 1개 (에픽 이상)<br><small>마왕성 Lv.6부터 · 하루 1번</small></td><td class="nowrap"><a href="#ko-gear-epic">보기</a></td></tr>
+</tbody></table></div>
+<h3>유료 골드 상품 (참고)</h3>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>상품 / 가격</th><th class="num">기본 골드</th><th class="num">묶음 보너스</th><th class="num">첫 구매 추가</th></tr></thead>
+<tbody>
+<tr><td>골드 한 줌<br><small>₩1,200</small></td><td class="num">3,000</td><td class="num">—</td><td class="num">+3,000</td></tr>
+<tr><td>골드 주머니<br><small>₩5,900</small></td><td class="num">16,000</td><td class="num">+4,000</td><td class="num">+16,000</td></tr>
+<tr><td>골드 상자<br><small>₩12,000</small></td><td class="num">34,000</td><td class="num">+11,000</td><td class="num">+34,000</td></tr>
+<tr><td>골드 수레<br><small>₩33,000</small></td><td class="num">100,000</td><td class="num">+45,000</td><td class="num">+100,000</td></tr>
+<tr><td>드래곤의 보물 더미<br><small>₩69,000</small></td><td class="num">220,000</td><td class="num">+125,000</td><td class="num">+220,000</td></tr>
+</tbody></table></div>
+<p>골드 상품 자체는 받는 양이 정해져 있어 확률형 상품이 아닙니다. 가격은 대한민국 기준이며, 다른 나라에서는 각 스토어가 정한 현지 가격으로 결제됩니다. 묶음 보너스는 큰 상품에 더 주는 골드입니다. 첫 구매 추가 골드(기본 골드와 같은 양)는 상품마다 계정당 처음 한 번만 받습니다.</p>
+
+<h2 id="ko-summon">2. 부하 소환 확률 (소환 제단·상점 채용 공통)</h2>
+<ul>
+  <li>부하 한 명을 뽑을 때는 먼저 등급을 정하고, 그 등급의 후보 몹 가운데 하나를 종마다 같은 확률로 뽑습니다.</li>
+  <li>후보 몹은 내가 고른 군단의 몹뿐입니다. 군단은 게임을 시작할 때 반드시 고르며, 군단을 바꾸면 그 뒤에 정해지는 결과부터 새 군단의 몹이 나옵니다. 소환 제단의 결과는 소환이 끝나는 순간에 정해집니다.</li>
+  <li>그 등급에 후보 몹이 없으면 한 단계 아래 등급에서 뽑습니다. 아래 표에는 이 규칙까지 반영했습니다.</li>
+</ul>
+<h3>2-1. 소환 종류별 등급 확률</h3>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>소환 종류</th><th class="num">일반</th><th class="num">레어</th><th class="num">에픽</th><th class="num">레전드</th></tr></thead>
+<tbody>
+<tr><td><a href="#ko-summon-common">일반 소환</a></td><td class="num">85%</td><td class="num">13%</td><td class="num">2%</td><td class="num">—</td></tr>
+<tr><td><a href="#ko-summon-rare">레어 소환</a></td><td class="num">—</td><td class="num">80%</td><td class="num">17%</td><td class="num">3%</td></tr>
+<tr><td><a href="#ko-summon-epic">에픽 소환</a></td><td class="num">—</td><td class="num">—</td><td class="num">85%</td><td class="num">15%</td></tr>
+<tr><td><a href="#ko-summon-legend">레전드 소환</a></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">100%</td></tr>
+</tbody></table></div>
+<p>등급 확률은 네 군단 모두 같습니다.</p>
+<h3 id="ko-guarantee">2-2. 여러 명을 한 번에 뽑을 때 (10연·묶음 보장)</h3>
+<ul>
+  <li>소환 제단의 10연과 상점의 여러 명 상품은 한 명씩 따로 뽑습니다.</li>
+  <li>마지막 1명 전까지 보장 등급 이상이 한 번도 나오지 않았으면, 마지막 1명은 보장 등급보다 낮은 등급을 뺀 확률(아래 표의 "보장 칸")로 뽑습니다.</li>
+  <li>앞에서 이미 보장 등급 이상이 나왔으면 마지막 1명도 보통 확률(1회 확률)로 뽑습니다.</li>
+  <li>레전드 소환은 모든 결과가 레전드라 보장 규칙이 없습니다.</li>
+</ul>
+<p><strong>보장 칸(마지막 1명) 등급 확률</strong></p>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>소환 종류</th><th class="num">일반</th><th class="num">레어</th><th class="num">에픽</th><th class="num">레전드</th></tr></thead>
+<tbody>
+<tr><td>일반 소환<br><small>10연 보장: 레어 이상</small></td><td class="num">—</td><td class="num">86.67%</td><td class="num">13.33%</td><td class="num">—</td></tr>
+<tr><td>레어 소환<br><small>10연 보장: 에픽 이상</small></td><td class="num">—</td><td class="num">—</td><td class="num">85%</td><td class="num">15%</td></tr>
+<tr><td>에픽 소환<br><small>10연 보장: 레전드 이상</small></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">100%</td></tr>
+</tbody></table></div>
+<h3 id="ko-summon-legions">2-3. 군단별 몹 확률</h3>
+<p>몹 1종의 확률 = 등급 확률 ÷ 그 등급의 후보 몹 수. "보장 칸"은 위 2-2 규칙으로 마지막 1명을 보장 확률로 뽑을 때의 확률입니다.</p>
+<h4 id="ko-summon-common">일반 소환</h4>
+<details class="prob-details" id="ko-summon-common-beast">
+<summary>일반 소환 · 마수군 · 후보 33종</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>몹</th><th class="num">1회 확률</th><th class="num">보장 칸 확률</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>일반 · 17종 (1종마다 5%)</td><td class="num">85%</td><td class="num">—</td></tr>
+<tr><td>고블린</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>고블린 방패병</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>고블린 소매치기</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>꽃요정</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>덩굴손</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>미궁의 미노타우로스</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>박쥐</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>버섯돌이</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>산성 슬라임</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>슬라임</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>어인 창병</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>얼음 박쥐</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>오우거 주술사</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>오크 전사</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>오크 투창병</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>코볼트</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>파랑 슬라임</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>레어 · 9종 (1종마다 1.44%)</td><td class="num">13%</td><td class="num">86.67%</td></tr>
+<tr><td>간호 슬라임</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr><td>고블린 궁수</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr><td>고블린 주술사</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr><td>고블린 폭탄병</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr><td>늑대인간</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr><td>메탈 슬라임</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr><td>오거 몽둥이꾼</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr><td>젤리 반장</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr><td>홉고블린 조장</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr class="prob-grade"><td>에픽 · 7종 (1종마다 0.29%)</td><td class="num">2%</td><td class="num">13.33%</td></tr>
+<tr><td>고블린 대장군</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>구미호</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>그리핀</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>무지개 슬라임</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>오크 대족장</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>케르베로스</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>파리지옥</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="ko-summon-common-necro">
+<summary>일반 소환 · 사령군 · 후보 22종</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>몹</th><th class="num">1회 확률</th><th class="num">보장 칸 확률</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>일반 · 7종 (1종마다 12.14%)</td><td class="num">85%</td><td class="num">—</td></tr>
+<tr><td>리빙 아머</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>빈 갑옷</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>유령 인턴</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>좀비 사원</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>해골 궁수</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>해골 마법사</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>해골 수도승</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>레어 · 8종 (1종마다 1.62%)</td><td class="num">13%</td><td class="num">86.67%</td></tr>
+<tr><td>듀라한</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>미라</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>밴시</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>뱀파이어 기사</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>역병 의사</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>해골 병사</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>해골 주교</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>해골 포병</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr class="prob-grade"><td>에픽 · 7종 (1종마다 0.29%)</td><td class="num">2%</td><td class="num">13.33%</td></tr>
+<tr><td>그림 리퍼</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>누더기 골렘</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>데스 나이트</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>리치 수습생</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>망자 심판관</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>뱀파이어 백작 부인</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>해골 장의사</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="ko-summon-common-demon">
+<summary>일반 소환 · 마족군 · 후보 17종</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>몹</th><th class="num">1회 확률</th><th class="num">보장 칸 확률</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>일반 · 4종 (1종마다 21.25%)</td><td class="num">85%</td><td class="num">—</td></tr>
+<tr><td>불꽃 임프</td><td class="num">21.25%</td><td class="num">—</td></tr>
+<tr><td>서리 요정</td><td class="num">21.25%</td><td class="num">—</td></tr>
+<tr><td>운디네</td><td class="num">21.25%</td><td class="num">—</td></tr>
+<tr><td>임프 비서</td><td class="num">21.25%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>레어 · 8종 (1종마다 1.62%)</td><td class="num">13%</td><td class="num">86.67%</td></tr>
+<tr><td>그림자 추적자</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>나가 마녀</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>뿔 악마</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>샐러맨더</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>서큐버스</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>얼음 마녀</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>인어 가수</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>철갑 악마 기사</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr class="prob-grade"><td>에픽 · 5종 (1종마다 0.4%)</td><td class="num">2%</td><td class="num">13.33%</td></tr>
+<tr><td>마신군 장군</td><td class="num">0.4%</td><td class="num">2.67%</td></tr>
+<tr><td>미믹</td><td class="num">0.4%</td><td class="num">2.67%</td></tr>
+<tr><td>용의 신관</td><td class="num">0.4%</td><td class="num">2.67%</td></tr>
+<tr><td>이프리트</td><td class="num">0.4%</td><td class="num">2.67%</td></tr>
+<tr><td>지옥문 수문장</td><td class="num">0.4%</td><td class="num">2.67%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="ko-summon-common-giant">
+<summary>일반 소환 · 거인군 · 후보 22종</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>몹</th><th class="num">1회 확률</th><th class="num">보장 칸 확률</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>일반 · 4종 (1종마다 21.25%)</td><td class="num">85%</td><td class="num">—</td></tr>
+<tr><td>나무 골렘</td><td class="num">21.25%</td><td class="num">—</td></tr>
+<tr><td>어린 사이클롭스</td><td class="num">21.25%</td><td class="num">—</td></tr>
+<tr><td>이끼 트롤</td><td class="num">21.25%</td><td class="num">—</td></tr>
+<tr><td>흙 골렘</td><td class="num">21.25%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>레어 · 11종 (1종마다 1.18%)</td><td class="num">13%</td><td class="num">86.67%</td></tr>
+<tr><td>거석 룬술사</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>나무 정령</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>드레이크</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>바위 골렘</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>서리 거인 사냥꾼</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>얼음 골렘</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>에틴</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>예티</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>와이번</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>용암 골렘</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>청동 골렘</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr class="prob-grade"><td>에픽 · 7종 (1종마다 0.29%)</td><td class="num">2%</td><td class="num">13.33%</td></tr>
+<tr><td>가고일 경비원</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>바다뱀</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>사이클롭스 대장장이</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>서리 거인</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>아다만타이트 골렘</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>철 골렘</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>폭풍 거인</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+</tbody></table></div>
+</details>
+<h4 id="ko-summon-rare">레어 소환</h4>
+<details class="prob-details" id="ko-summon-rare-beast">
+<summary>레어 소환 · 마수군 · 후보 18종</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>몹</th><th class="num">1회 확률</th><th class="num">보장 칸 확률</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>레어 · 9종 (1종마다 8.89%)</td><td class="num">80%</td><td class="num">—</td></tr>
+<tr><td>간호 슬라임</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr><td>고블린 궁수</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr><td>고블린 주술사</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr><td>고블린 폭탄병</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr><td>늑대인간</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr><td>메탈 슬라임</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr><td>오거 몽둥이꾼</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr><td>젤리 반장</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr><td>홉고블린 조장</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>에픽 · 7종 (1종마다 2.43%)</td><td class="num">17%</td><td class="num">85%</td></tr>
+<tr><td>고블린 대장군</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>구미호</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>그리핀</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>무지개 슬라임</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>오크 대족장</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>케르베로스</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>파리지옥</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr class="prob-grade"><td>레전드 · 2종 (1종마다 1.5%)</td><td class="num">3%</td><td class="num">15%</td></tr>
+<tr><td>세계수의 싹</td><td class="num">1.5%</td><td class="num">7.5%</td></tr>
+<tr><td>슬라임 황제</td><td class="num">1.5%</td><td class="num">7.5%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="ko-summon-rare-necro">
+<summary>레어 소환 · 사령군 · 후보 17종</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>몹</th><th class="num">1회 확률</th><th class="num">보장 칸 확률</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>레어 · 8종 (1종마다 10%)</td><td class="num">80%</td><td class="num">—</td></tr>
+<tr><td>듀라한</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>미라</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>밴시</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>뱀파이어 기사</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>역병 의사</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>해골 병사</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>해골 주교</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>해골 포병</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>에픽 · 7종 (1종마다 2.43%)</td><td class="num">17%</td><td class="num">85%</td></tr>
+<tr><td>그림 리퍼</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>누더기 골렘</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>데스 나이트</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>리치 수습생</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>망자 심판관</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>뱀파이어 백작 부인</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>해골 장의사</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr class="prob-grade"><td>레전드 · 2종 (1종마다 1.5%)</td><td class="num">3%</td><td class="num">15%</td></tr>
+<tr><td>본 드래곤</td><td class="num">1.5%</td><td class="num">7.5%</td></tr>
+<tr><td>해골 거인</td><td class="num">1.5%</td><td class="num">7.5%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="ko-summon-rare-demon">
+<summary>레어 소환 · 마족군 · 후보 16종</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>몹</th><th class="num">1회 확률</th><th class="num">보장 칸 확률</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>레어 · 8종 (1종마다 10%)</td><td class="num">80%</td><td class="num">—</td></tr>
+<tr><td>그림자 추적자</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>나가 마녀</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>뿔 악마</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>샐러맨더</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>서큐버스</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>얼음 마녀</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>인어 가수</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>철갑 악마 기사</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>에픽 · 5종 (1종마다 3.4%)</td><td class="num">17%</td><td class="num">85%</td></tr>
+<tr><td>마신군 장군</td><td class="num">3.4%</td><td class="num">17%</td></tr>
+<tr><td>미믹</td><td class="num">3.4%</td><td class="num">17%</td></tr>
+<tr><td>용의 신관</td><td class="num">3.4%</td><td class="num">17%</td></tr>
+<tr><td>이프리트</td><td class="num">3.4%</td><td class="num">17%</td></tr>
+<tr><td>지옥문 수문장</td><td class="num">3.4%</td><td class="num">17%</td></tr>
+<tr class="prob-grade"><td>레전드 · 3종 (1종마다 1%)</td><td class="num">3%</td><td class="num">15%</td></tr>
+<tr><td>눈의 여왕</td><td class="num">1%</td><td class="num">5%</td></tr>
+<tr><td>대악마</td><td class="num">1%</td><td class="num">5%</td></tr>
+<tr><td>화염 군주</td><td class="num">1%</td><td class="num">5%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="ko-summon-rare-giant">
+<summary>레어 소환 · 거인군 · 후보 25종</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>몹</th><th class="num">1회 확률</th><th class="num">보장 칸 확률</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>레어 · 11종 (1종마다 7.27%)</td><td class="num">80%</td><td class="num">—</td></tr>
+<tr><td>거석 룬술사</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>나무 정령</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>드레이크</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>바위 골렘</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>서리 거인 사냥꾼</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>얼음 골렘</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>에틴</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>예티</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>와이번</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>용암 골렘</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>청동 골렘</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>에픽 · 7종 (1종마다 2.43%)</td><td class="num">17%</td><td class="num">85%</td></tr>
+<tr><td>가고일 경비원</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>바다뱀</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>사이클롭스 대장장이</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>서리 거인</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>아다만타이트 골렘</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>철 골렘</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>폭풍 거인</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr class="prob-grade"><td>레전드 · 7종 (1종마다 0.43%)</td><td class="num">3%</td><td class="num">15%</td></tr>
+<tr><td>고대 거신병</td><td class="num">0.43%</td><td class="num">2.14%</td></tr>
+<tr><td>고룡</td><td class="num">0.43%</td><td class="num">2.14%</td></tr>
+<tr><td>베히모스</td><td class="num">0.43%</td><td class="num">2.14%</td></tr>
+<tr><td>산을 짊어진 타이탄</td><td class="num">0.43%</td><td class="num">2.14%</td></tr>
+<tr><td>새끼 용</td><td class="num">0.43%</td><td class="num">2.14%</td></tr>
+<tr><td>오리하르콘 골렘</td><td class="num">0.43%</td><td class="num">2.14%</td></tr>
+<tr><td>오우거 경비대장</td><td class="num">0.43%</td><td class="num">2.14%</td></tr>
+</tbody></table></div>
+</details>
+<h4 id="ko-summon-epic">에픽 소환</h4>
+<details class="prob-details" id="ko-summon-epic-beast">
+<summary>에픽 소환 · 마수군 · 후보 9종</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>몹</th><th class="num">1회 확률</th><th class="num">보장 칸 확률</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>에픽 · 7종 (1종마다 12.14%)</td><td class="num">85%</td><td class="num">—</td></tr>
+<tr><td>고블린 대장군</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>구미호</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>그리핀</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>무지개 슬라임</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>오크 대족장</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>케르베로스</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>파리지옥</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>레전드 · 2종 (1종마다 7.5%)</td><td class="num">15%</td><td class="num">100%</td></tr>
+<tr><td>세계수의 싹</td><td class="num">7.5%</td><td class="num">50%</td></tr>
+<tr><td>슬라임 황제</td><td class="num">7.5%</td><td class="num">50%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="ko-summon-epic-necro">
+<summary>에픽 소환 · 사령군 · 후보 9종</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>몹</th><th class="num">1회 확률</th><th class="num">보장 칸 확률</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>에픽 · 7종 (1종마다 12.14%)</td><td class="num">85%</td><td class="num">—</td></tr>
+<tr><td>그림 리퍼</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>누더기 골렘</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>데스 나이트</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>리치 수습생</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>망자 심판관</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>뱀파이어 백작 부인</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>해골 장의사</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>레전드 · 2종 (1종마다 7.5%)</td><td class="num">15%</td><td class="num">100%</td></tr>
+<tr><td>본 드래곤</td><td class="num">7.5%</td><td class="num">50%</td></tr>
+<tr><td>해골 거인</td><td class="num">7.5%</td><td class="num">50%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="ko-summon-epic-demon">
+<summary>에픽 소환 · 마족군 · 후보 8종</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>몹</th><th class="num">1회 확률</th><th class="num">보장 칸 확률</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>에픽 · 5종 (1종마다 17%)</td><td class="num">85%</td><td class="num">—</td></tr>
+<tr><td>마신군 장군</td><td class="num">17%</td><td class="num">—</td></tr>
+<tr><td>미믹</td><td class="num">17%</td><td class="num">—</td></tr>
+<tr><td>용의 신관</td><td class="num">17%</td><td class="num">—</td></tr>
+<tr><td>이프리트</td><td class="num">17%</td><td class="num">—</td></tr>
+<tr><td>지옥문 수문장</td><td class="num">17%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>레전드 · 3종 (1종마다 5%)</td><td class="num">15%</td><td class="num">100%</td></tr>
+<tr><td>눈의 여왕</td><td class="num">5%</td><td class="num">33.33%</td></tr>
+<tr><td>대악마</td><td class="num">5%</td><td class="num">33.33%</td></tr>
+<tr><td>화염 군주</td><td class="num">5%</td><td class="num">33.33%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="ko-summon-epic-giant">
+<summary>에픽 소환 · 거인군 · 후보 14종</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>몹</th><th class="num">1회 확률</th><th class="num">보장 칸 확률</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>에픽 · 7종 (1종마다 12.14%)</td><td class="num">85%</td><td class="num">—</td></tr>
+<tr><td>가고일 경비원</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>바다뱀</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>사이클롭스 대장장이</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>서리 거인</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>아다만타이트 골렘</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>철 골렘</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>폭풍 거인</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>레전드 · 7종 (1종마다 2.14%)</td><td class="num">15%</td><td class="num">100%</td></tr>
+<tr><td>고대 거신병</td><td class="num">2.14%</td><td class="num">14.29%</td></tr>
+<tr><td>고룡</td><td class="num">2.14%</td><td class="num">14.29%</td></tr>
+<tr><td>베히모스</td><td class="num">2.14%</td><td class="num">14.29%</td></tr>
+<tr><td>산을 짊어진 타이탄</td><td class="num">2.14%</td><td class="num">14.29%</td></tr>
+<tr><td>새끼 용</td><td class="num">2.14%</td><td class="num">14.29%</td></tr>
+<tr><td>오리하르콘 골렘</td><td class="num">2.14%</td><td class="num">14.29%</td></tr>
+<tr><td>오우거 경비대장</td><td class="num">2.14%</td><td class="num">14.29%</td></tr>
+</tbody></table></div>
+</details>
+<h4 id="ko-summon-legend">레전드 소환</h4>
+<details class="prob-details" id="ko-summon-legend-beast">
+<summary>레전드 소환 · 마수군 · 후보 2종</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>몹</th><th class="num">1회 확률</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>레전드 · 2종 (1종마다 50%)</td><td class="num">100%</td></tr>
+<tr><td>세계수의 싹</td><td class="num">50%</td></tr>
+<tr><td>슬라임 황제</td><td class="num">50%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="ko-summon-legend-necro">
+<summary>레전드 소환 · 사령군 · 후보 2종</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>몹</th><th class="num">1회 확률</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>레전드 · 2종 (1종마다 50%)</td><td class="num">100%</td></tr>
+<tr><td>본 드래곤</td><td class="num">50%</td></tr>
+<tr><td>해골 거인</td><td class="num">50%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="ko-summon-legend-demon">
+<summary>레전드 소환 · 마족군 · 후보 3종</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>몹</th><th class="num">1회 확률</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>레전드 · 3종 (1종마다 33.33%)</td><td class="num">100%</td></tr>
+<tr><td>눈의 여왕</td><td class="num">33.33%</td></tr>
+<tr><td>대악마</td><td class="num">33.33%</td></tr>
+<tr><td>화염 군주</td><td class="num">33.33%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="ko-summon-legend-giant">
+<summary>레전드 소환 · 거인군 · 후보 7종</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>몹</th><th class="num">1회 확률</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>레전드 · 7종 (1종마다 14.29%)</td><td class="num">100%</td></tr>
+<tr><td>고대 거신병</td><td class="num">14.29%</td></tr>
+<tr><td>고룡</td><td class="num">14.29%</td></tr>
+<tr><td>베히모스</td><td class="num">14.29%</td></tr>
+<tr><td>산을 짊어진 타이탄</td><td class="num">14.29%</td></tr>
+<tr><td>새끼 용</td><td class="num">14.29%</td></tr>
+<tr><td>오리하르콘 골렘</td><td class="num">14.29%</td></tr>
+<tr><td>오우거 경비대장</td><td class="num">14.29%</td></tr>
+</tbody></table></div>
+</details>
+
+<h2 id="ko-shop">3. 상점 부하 채용·오늘의 특가</h2>
+<ul>
+  <li>상점의 부하 채용은 기다림 없이 바로 부하가 오며, 결과는 아래 "확률표"의 소환 종류와 같은 확률로 정해집니다 (2장의 표).</li>
+  <li>2명 이상을 주는 상품은 2-2의 보장 규칙을 따릅니다.</li>
+  <li>오늘의 특가는 날마다(기기 날짜 기준) 아래 목록에서 3개가 정해집니다. 특가 목록은 구매와 관계없이 정해지며, 특가 상품의 결과 확률은 같은 소환 종류·장비 상자와 같습니다.</li>
+</ul>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>상품</th><th class="num">수량</th><th>확률표</th><th>보장</th></tr></thead>
+<tbody>
+<tr><td>급구 채용 공고<br><small>부하 채용 · 100골드</small></td><td class="num">1명</td><td><a href="#ko-summon-common">일반 소환</a></td><td>—</td></tr>
+<tr><td>경력직 스카우트<br><small>부하 채용 · 600골드</small></td><td class="num">1명</td><td><a href="#ko-summon-rare">레어 소환</a></td><td>—</td></tr>
+<tr><td>임원 스카우트<br><small>부하 채용 · 2,000골드</small></td><td class="num">1명</td><td><a href="#ko-summon-epic">에픽 소환</a></td><td>—</td></tr>
+<tr><td>단체 채용 박람회<br><small>부하 채용 · 500골드</small></td><td class="num">10명</td><td><a href="#ko-summon-common">일반 소환</a></td><td>마지막 1명 레어 이상</td></tr>
+<tr><td>대장간 뒷문 상자<br><small>장비 상자 · 500골드</small></td><td class="num">1개</td><td><a href="#ko-gear-any">등급 제한 없음</a></td><td>—</td></tr>
+<tr><td>별똥별 빛 상자<br><small>장비 상자 · 800골드</small></td><td class="num">1개</td><td><a href="#ko-gear-rare">레어 이상</a></td><td>—</td></tr>
+<tr><td>운석 상자<br><small>장비 상자 · 2,400골드</small></td><td class="num">1개</td><td><a href="#ko-gear-epic">에픽 이상</a></td><td>—</td></tr>
+<tr><td>급구 채용 공고 할인<br><small>오늘의 특가 · 60골드<br><small>정가 100</small></small></td><td class="num">1명</td><td><a href="#ko-summon-common">일반 소환</a></td><td>—</td></tr>
+<tr><td>급구 채용 3명 묶음<br><small>오늘의 특가 · 240골드<br><small>정가 300</small></small></td><td class="num">3명</td><td><a href="#ko-summon-common">일반 소환</a></td><td>마지막 1명 레어 이상</td></tr>
+<tr><td>단체 채용 박람회 할인<br><small>오늘의 특가 · 400골드<br><small>정가 500</small></small></td><td class="num">10명</td><td><a href="#ko-summon-common">일반 소환</a></td><td>마지막 1명 레어 이상</td></tr>
+<tr><td>뒷문 상자 2개 묶음<br><small>오늘의 특가 · 800골드<br><small>정가 1,000</small></small></td><td class="num">2개</td><td><a href="#ko-gear-any">등급 제한 없음</a></td><td>—</td></tr>
+<tr><td>경력직 2명 묶음<br><small>오늘의 특가 · 900골드<br><small>정가 1,200</small></small></td><td class="num">2명</td><td><a href="#ko-summon-rare">레어 소환</a></td><td>마지막 1명 에픽 이상</td></tr>
+<tr><td>임원 스카우트 할인<br><small>오늘의 특가 · 1,400골드<br><small>정가 2,000</small></small></td><td class="num">1명</td><td><a href="#ko-summon-epic">에픽 소환</a></td><td>—</td></tr>
+<tr><td>별똥별 빛 상자 할인<br><small>오늘의 특가 · 500골드<br><small>정가 800</small></small></td><td class="num">1개</td><td><a href="#ko-gear-rare">레어 이상</a></td><td>—</td></tr>
+<tr><td>운석 상자 할인<br><small>오늘의 특가 · 1,800골드<br><small>정가 2,400</small></small></td><td class="num">1개</td><td><a href="#ko-gear-epic">에픽 이상</a></td><td>—</td></tr>
+</tbody></table></div>
+
+<h2 id="ko-gear">4. 장비 상자 확률</h2>
+<ul>
+  <li>상자 1개에서 장비 1개가 나옵니다. ① 등급 → ② 장비 종류 → ③ 부옵션 순서로 정합니다.</li>
+  <li>등급 확률은 마왕성 레벨에 따라 다릅니다. "○○ 이상" 상자는 그보다 낮은 등급을 빼고, 남은 등급끼리 같은 비율로 나눕니다.</li>
+  <li>여러 개를 주는 상품은 상자마다 따로 뽑으며, 보장은 없습니다.</li>
+</ul>
+<h3>4-1. 등급 확률 (마왕성 레벨별)</h3>
+<h4 id="ko-gear-any">등급 제한 없음</h4>
+<p><small>쓰는 상품: 대장간 뒷문 상자, 뒷문 상자 2개 묶음</small></p>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>마왕성 레벨</th><th class="num">일반</th><th class="num">레어</th><th class="num">에픽</th><th class="num">레전드</th></tr></thead>
+<tbody>
+<tr><td>Lv.1~3</td><td class="num">80%</td><td class="num">20%</td><td class="num">—</td><td class="num">—</td></tr>
+<tr><td>Lv.4~7</td><td class="num">55%</td><td class="num">35%</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>Lv.8~11</td><td class="num">35%</td><td class="num">40%</td><td class="num">20%</td><td class="num">5%</td></tr>
+<tr><td>Lv.12~30</td><td class="num">20%</td><td class="num">40%</td><td class="num">28%</td><td class="num">12%</td></tr>
+</tbody></table></div>
+<h4 id="ko-gear-rare">레어 이상</h4>
+<p><small>쓰는 상품: 별똥별 빛 상자, 별똥별 빛 상자 할인</small></p>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>마왕성 레벨</th><th class="num">일반</th><th class="num">레어</th><th class="num">에픽</th><th class="num">레전드</th></tr></thead>
+<tbody>
+<tr><td>Lv.1~3</td><td class="num">—</td><td class="num">100%</td><td class="num">—</td><td class="num">—</td></tr>
+<tr><td>Lv.4~7</td><td class="num">—</td><td class="num">77.78%</td><td class="num">22.22%</td><td class="num">—</td></tr>
+<tr><td>Lv.8~11</td><td class="num">—</td><td class="num">61.54%</td><td class="num">30.77%</td><td class="num">7.69%</td></tr>
+<tr><td>Lv.12~30</td><td class="num">—</td><td class="num">50%</td><td class="num">35%</td><td class="num">15%</td></tr>
+</tbody></table></div>
+<h4 id="ko-gear-epic">에픽 이상</h4>
+<p><small>쓰는 상품: 운석 상자, 운석 상자 할인</small></p>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>마왕성 레벨</th><th class="num">일반</th><th class="num">레어</th><th class="num">에픽</th><th class="num">레전드</th></tr></thead>
+<tbody>
+<tr><td>Lv.1~7</td><td class="num">—</td><td class="num">—</td><td class="num">100%</td><td class="num">—</td></tr>
+<tr><td>Lv.8~11</td><td class="num">—</td><td class="num">—</td><td class="num">80%</td><td class="num">20%</td></tr>
+<tr><td>Lv.12~30</td><td class="num">—</td><td class="num">—</td><td class="num">70%</td><td class="num">30%</td></tr>
+</tbody></table></div>
+<h3 id="ko-gear-bases">4-2. 장비 종류</h3>
+<p>장비 종류는 48가지이며, 등급과 관계없이 종류마다 같은 확률(2.08%)로 정해집니다.</p>
+<details class="prob-details">
+<summary>장비 48종 목록</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>장비</th><th>부위</th><th>주 능력치</th><th class="num">1회 확률</th></tr></thead>
+<tbody>
+<tr><td>강철 검</td><td>주 무기</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>전투 도끼</td><td>주 무기</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>가시 몽둥이</td><td>주 무기</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>강철 단검</td><td>주 무기</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>마법 완드</td><td>주 무기</td><td>스킬 위력</td><td class="num">2.08%</td></tr>
+<tr><td>화염검</td><td>주 무기</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>서리검</td><td>주 무기</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>성스러운 철퇴</td><td>주 무기</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>맹독 단검</td><td>주 무기</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>대검</td><td>주 무기</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>긴 창</td><td>주 무기</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>전쟁 망치</td><td>주 무기</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>마력 지팡이</td><td>주 무기</td><td>스킬 위력</td><td class="num">2.08%</td></tr>
+<tr><td>긴 활</td><td>주 무기</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>뇌격 망치</td><td>주 무기</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>그림자 낫</td><td>주 무기</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>빙결 지팡이</td><td>주 무기</td><td>스킬 위력</td><td class="num">2.08%</td></tr>
+<tr><td>나무 방패</td><td>보조</td><td>방어력</td><td class="num">2.08%</td></tr>
+<tr><td>탑 방패</td><td>보조</td><td>방어력</td><td class="num">2.08%</td></tr>
+<tr><td>수정 구슬</td><td>보조</td><td>스킬 위력</td><td class="num">2.08%</td></tr>
+<tr><td>마법사 모자</td><td>머리</td><td>체력</td><td class="num">2.08%</td></tr>
+<tr><td>가죽 두건</td><td>머리</td><td>체력</td><td class="num">2.08%</td></tr>
+<tr><td>강철 투구</td><td>머리</td><td>체력</td><td class="num">2.08%</td></tr>
+<tr><td>비단 장갑</td><td>장갑</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>가죽 장갑</td><td>장갑</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>강철 건틀릿</td><td>장갑</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>마력 로브</td><td>몸통</td><td>체력</td><td class="num">2.08%</td></tr>
+<tr><td>가죽 조끼</td><td>몸통</td><td>체력</td><td class="num">2.08%</td></tr>
+<tr><td>뼈 갑옷</td><td>몸통</td><td>체력</td><td class="num">2.08%</td></tr>
+<tr><td>사슬 갑옷</td><td>몸통</td><td>체력</td><td class="num">2.08%</td></tr>
+<tr><td>판금 갑옷</td><td>몸통</td><td>방어력</td><td class="num">2.08%</td></tr>
+<tr><td>거북 등껍질</td><td>몸통</td><td>방어력</td><td class="num">2.08%</td></tr>
+<tr><td>천 바지</td><td>다리</td><td>체력</td><td class="num">2.08%</td></tr>
+<tr><td>가죽 바지</td><td>다리</td><td>체력</td><td class="num">2.08%</td></tr>
+<tr><td>강철 각반</td><td>다리</td><td>체력</td><td class="num">2.08%</td></tr>
+<tr><td>천 신발</td><td>장화</td><td>이동 속도</td><td class="num">2.08%</td></tr>
+<tr><td>가죽 장화</td><td>장화</td><td>이동 속도</td><td class="num">2.08%</td></tr>
+<tr><td>날개 장화</td><td>장화</td><td>이동 속도</td><td class="num">2.08%</td></tr>
+<tr><td>강철 장화</td><td>장화</td><td>방어력</td><td class="num">2.08%</td></tr>
+<tr><td>진주 귀걸이</td><td>귀걸이</td><td>스킬 위력</td><td class="num">2.08%</td></tr>
+<tr><td>별 귀걸이</td><td>귀걸이</td><td>재사용 단축</td><td class="num">2.08%</td></tr>
+<tr><td>청옥 목걸이</td><td>목걸이</td><td>스킬 위력</td><td class="num">2.08%</td></tr>
+<tr><td>흡혈 송곳니</td><td>목걸이</td><td>흡혈</td><td class="num">2.08%</td></tr>
+<tr><td>루비 반지</td><td>반지</td><td>공격력</td><td class="num">2.08%</td></tr>
+<tr><td>은반지</td><td>반지</td><td>재사용 단축</td><td class="num">2.08%</td></tr>
+<tr><td>가죽 허리띠</td><td>허리띠</td><td>체력</td><td class="num">2.08%</td></tr>
+<tr><td>행운 부적 허리띠</td><td>허리띠</td><td>체력</td><td class="num">2.08%</td></tr>
+<tr><td>황금 허리띠</td><td>허리띠</td><td>재사용 단축</td><td class="num">2.08%</td></tr>
+</tbody></table></div>
+</details>
+<h3 id="ko-gear-subs">4-3. 부옵션</h3>
+<p>부옵션 수는 등급에 따라 정해져 있습니다. 부옵션 능력치는 그 장비의 주 능력치를 뺀 능력치 가운데 겹치지 않게 같은 확률로 고르고, 값은 범위 안의 정수 가운데 같은 확률로 정합니다.</p>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>등급</th><th class="num">부옵션 수</th></tr></thead>
+<tbody>
+<tr><td>일반</td><td class="num">0</td></tr>
+<tr><td>레어</td><td class="num">1</td></tr>
+<tr><td>에픽</td><td class="num">1</td></tr>
+<tr><td>레전드</td><td class="num">2</td></tr>
+</tbody></table></div>
+<p>부옵션 능력치는 7가지입니다. 첫 번째 부옵션은 주 능력치를 뺀 6가지 중 하나(각 16.67%), 두 번째 부옵션은 그 나머지 5가지 중 하나(각 20%)입니다.</p>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>능력치</th><th>값 범위</th><th class="num">값 하나의 확률</th></tr></thead>
+<tbody>
+<tr><td>공격력</td><td>+1% ~ +3%</td><td class="num">33.33%</td></tr>
+<tr><td>체력</td><td>+1% ~ +4%</td><td class="num">25%</td></tr>
+<tr><td>방어력</td><td>+1</td><td class="num">100%</td></tr>
+<tr><td>스킬 위력</td><td>+1% ~ +4%</td><td class="num">25%</td></tr>
+<tr><td>이동 속도</td><td>+2 ~ +5</td><td class="num">25%</td></tr>
+<tr><td>흡혈</td><td>1% ~ 2%</td><td class="num">50%</td></tr>
+<tr><td>재사용 단축</td><td>-1% ~ -3%</td><td class="num">33.33%</td></tr>
+</tbody></table></div>
+
+<h2 id="ko-contact">5. 확률 변경과 문의</h2>
+<ul>
+  <li>확률이나 상품 구성을 바꿀 때는 게임 안 공지와 이 페이지로 미리 알리고, 이 페이지의 기준일을 고칩니다.</li>
+  <li>확률 표시에 잘못이 있거나 궁금한 점이 있으면 <a href="mailto:help@pinkmandarin.com">help@pinkmandarin.com</a>으로 문의해 주세요.</li>
+  <li>관련 문서: <a href="terms.html">이용약관</a> &middot; <a href="privacy.html">개인정보처리방침</a></li>
+</ul>
+<h3>변경 이력</h3>
+<ul>
+  <li>2026년 11월 1일: 처음 게시</li>
+</ul>
+</div>
+</div>
+
+<!-- English -->
+<div data-lang="en" style="display:none">
+<div class="legal-header">
+  <h1>Probability Information</h1>
+  <p class="meta">I Am The Boss Monster &middot; As of November 1, 2026 &middot; Game data version 0.4.2</p>
+</div>
+<div class="legal-content prob-content">
+<nav class="prob-toc" aria-label="Contents"><p><strong>Contents</strong></p>
+<ul>
+  <li><a href="#en-overview">1. Overview</a></li>
+  <li><a href="#en-summon">2. Minion summon odds (Summoning Altar and shop hiring)</a></li>
+  <li><a href="#en-shop">3. Shop hiring and Daily Deals</a></li>
+  <li><a href="#en-gear">4. Gear box odds</a></li>
+  <li><a href="#en-contact">5. Changes and contact</a></li>
+</ul></nav>
+
+<h2 id="en-overview">1. Overview</h2>
+<p>Gold can be earned in the Game or bought with real money in the [Gold] tab of the shop. The Game does not distinguish purchased Gold from earned Gold, so every item bought with Gold whose result is random is treated as a paid random item, and its odds are disclosed here.</p>
+<p>The odds on this page are generated automatically from the same data and functions the Game uses for its draws. You can see the same odds in the Game from the Summoning Altar's odds window and the (i) button on shop items.</p>
+<div class="prob-note"><p>Displayed odds are rounded to two decimal places, so the values in a table may not add up to exactly 100%. Before rounding, every table adds up to 100%.</p></div>
+<h3>Items with disclosed odds</h3>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Item</th><th class="num">Price</th><th>Contents</th><th class="nowrap">Odds</th></tr></thead>
+<tbody>
+<tr class="prob-group"><td colspan="4">Summoning Altar</td></tr>
+<tr><td>Common Summon Single</td><td class="num">50 Gold</td><td>1 Minion<br><small>Castle Lv.1+</small></td><td class="nowrap"><a href="#en-summon-common">View</a></td></tr>
+<tr><td>Common Summon ×10</td><td class="num">450 Gold</td><td>10 Minions, last one Rare+<br><small>Castle Lv.1+</small></td><td class="nowrap"><a href="#en-summon-common">View</a></td></tr>
+<tr><td>Rare Summon Single</td><td class="num">200 Gold</td><td>1 Minion<br><small>Castle Lv.2+</small></td><td class="nowrap"><a href="#en-summon-rare">View</a></td></tr>
+<tr><td>Rare Summon ×10</td><td class="num">1,800 Gold</td><td>10 Minions, last one Epic+<br><small>Castle Lv.2+</small></td><td class="nowrap"><a href="#en-summon-rare">View</a></td></tr>
+<tr><td>Epic Summon Single</td><td class="num">800 Gold</td><td>1 Minion<br><small>Castle Lv.4+</small></td><td class="nowrap"><a href="#en-summon-epic">View</a></td></tr>
+<tr><td>Epic Summon ×10</td><td class="num">7,200 Gold</td><td>10 Minions, last one Legend+<br><small>Castle Lv.4+</small></td><td class="nowrap"><a href="#en-summon-epic">View</a></td></tr>
+<tr><td>Legend Summon Single</td><td class="num">3,000 Gold</td><td>1 Minion<br><small>Castle Lv.7+</small></td><td class="nowrap"><a href="#en-summon-legend">View</a></td></tr>
+<tr><td>Legend Summon ×10</td><td class="num">27,000 Gold</td><td>10 Minions<br><small>Castle Lv.7+</small></td><td class="nowrap"><a href="#en-summon-legend">View</a></td></tr>
+<tr class="prob-group"><td colspan="4">Starfall Market · Hiring</td></tr>
+<tr><td>Urgent Job Post</td><td class="num">100 Gold</td><td>1 Minion(s), Common Summon odds<br><small>Castle Lv.1+ · 10/day</small></td><td class="nowrap"><a href="#en-summon-common">View</a></td></tr>
+<tr><td>Veteran Scout</td><td class="num">600 Gold</td><td>1 Minion(s), Rare Summon odds<br><small>Castle Lv.2+ · 3/day</small></td><td class="nowrap"><a href="#en-summon-rare">View</a></td></tr>
+<tr><td>Executive Scout</td><td class="num">2,000 Gold</td><td>1 Minion(s), Epic Summon odds<br><small>Castle Lv.4+ · 1/day</small></td><td class="nowrap"><a href="#en-summon-epic">View</a></td></tr>
+<tr><td>Job Fair</td><td class="num">500 Gold</td><td>10 Minions, Common Summon odds, last one Rare+<br><small>Castle Lv.3+ · 1/day</small></td><td class="nowrap"><a href="#en-summon-common">View</a></td></tr>
+<tr class="prob-group"><td colspan="4">Starfall Market · Gear Boxes</td></tr>
+<tr><td>Smithy Backdoor Box</td><td class="num">500 Gold</td><td>1 gear (odds by Castle Lv.)<br><small>Castle Lv.1+ · 3/day</small></td><td class="nowrap"><a href="#en-gear-any">View</a></td></tr>
+<tr><td>Starfall Box</td><td class="num">800 Gold</td><td>1 gear (Rare+)<br><small>Castle Lv.3+ · 2/day</small></td><td class="nowrap"><a href="#en-gear-rare">View</a></td></tr>
+<tr><td>Meteor Box</td><td class="num">2,400 Gold</td><td>1 gear (Epic+)<br><small>Castle Lv.6+ · 1/day</small></td><td class="nowrap"><a href="#en-gear-epic">View</a></td></tr>
+<tr class="prob-group"><td colspan="4">Starfall Market · Daily Deals</td></tr>
+<tr><td>Urgent Job Post Sale</td><td class="num">60 Gold<br><small>was 100</small></td><td>1 Minion(s), Common Summon odds<br><small>Castle Lv.1+ · 1/day</small></td><td class="nowrap"><a href="#en-summon-common">View</a></td></tr>
+<tr><td>Urgent Hire Trio</td><td class="num">240 Gold<br><small>was 300</small></td><td>3 Minions, Common Summon odds, last one Rare+<br><small>Castle Lv.1+ · 1/day</small></td><td class="nowrap"><a href="#en-summon-common">View</a></td></tr>
+<tr><td>Job Fair Sale</td><td class="num">400 Gold<br><small>was 500</small></td><td>10 Minions, Common Summon odds, last one Rare+<br><small>Castle Lv.3+ · 1/day</small></td><td class="nowrap"><a href="#en-summon-common">View</a></td></tr>
+<tr><td>Backdoor Box Pair</td><td class="num">800 Gold<br><small>was 1,000</small></td><td>2 gear (odds by Castle Lv.)<br><small>Castle Lv.1+ · 1/day</small></td><td class="nowrap"><a href="#en-gear-any">View</a></td></tr>
+<tr><td>Veteran Duo</td><td class="num">900 Gold<br><small>was 1,200</small></td><td>2 Minions, Rare Summon odds, last one Epic+<br><small>Castle Lv.2+ · 1/day</small></td><td class="nowrap"><a href="#en-summon-rare">View</a></td></tr>
+<tr><td>Executive Scout Sale</td><td class="num">1,400 Gold<br><small>was 2,000</small></td><td>1 Minion(s), Epic Summon odds<br><small>Castle Lv.4+ · 1/day</small></td><td class="nowrap"><a href="#en-summon-epic">View</a></td></tr>
+<tr><td>Starfall Box Sale</td><td class="num">500 Gold<br><small>was 800</small></td><td>1 gear (Rare+)<br><small>Castle Lv.3+ · 1/day</small></td><td class="nowrap"><a href="#en-gear-rare">View</a></td></tr>
+<tr><td>Meteor Box Sale</td><td class="num">1,800 Gold<br><small>was 2,400</small></td><td>1 gear (Epic+)<br><small>Castle Lv.6+ · 1/day</small></td><td class="nowrap"><a href="#en-gear-epic">View</a></td></tr>
+</tbody></table></div>
+<h3>Paid Gold products (for reference)</h3>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Item / Price</th><th class="num">Gold</th><th class="num">Bonus</th><th class="num">1st buy</th></tr></thead>
+<tbody>
+<tr><td>Handful of Gold<br><small>₩1,200</small></td><td class="num">3,000</td><td class="num">—</td><td class="num">+3,000</td></tr>
+<tr><td>Gold Pouch<br><small>₩5,900</small></td><td class="num">16,000</td><td class="num">+4,000</td><td class="num">+16,000</td></tr>
+<tr><td>Gold Chest<br><small>₩12,000</small></td><td class="num">34,000</td><td class="num">+11,000</td><td class="num">+34,000</td></tr>
+<tr><td>Gold Cart<br><small>₩33,000</small></td><td class="num">100,000</td><td class="num">+45,000</td><td class="num">+100,000</td></tr>
+<tr><td>Dragon&#x27;s Hoard<br><small>₩69,000</small></td><td class="num">220,000</td><td class="num">+125,000</td><td class="num">+220,000</td></tr>
+</tbody></table></div>
+<p>Gold products give a fixed amount and are not random items. Prices are for Korea; in other countries you pay the local price set by each store. "Bonus" is extra Gold for larger bundles. "1st buy" extra Gold (equal to the base Gold) is given only on the first purchase of each product per account.</p>
+
+<h2 id="en-summon">2. Minion summon odds (Summoning Altar and shop hiring)</h2>
+<ul>
+  <li>For each Minion, the grade is rolled first, then one monster of that grade is picked, each equally likely.</li>
+  <li>Only monsters of the legion you chose can appear. You must choose a legion when you start the Game; if you change legions, results decided after the change come from the new legion. Summoning Altar results are decided when the summon finishes.</li>
+  <li>If a grade has no monsters, a monster of the next lower grade is picked. The tables below already reflect this rule.</li>
+</ul>
+<h3>2-1. Grade odds by summon type</h3>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Summon type</th><th class="num">Common</th><th class="num">Rare</th><th class="num">Epic</th><th class="num">Legend</th></tr></thead>
+<tbody>
+<tr><td><a href="#en-summon-common">Common Summon</a></td><td class="num">85%</td><td class="num">13%</td><td class="num">2%</td><td class="num">—</td></tr>
+<tr><td><a href="#en-summon-rare">Rare Summon</a></td><td class="num">—</td><td class="num">80%</td><td class="num">17%</td><td class="num">3%</td></tr>
+<tr><td><a href="#en-summon-epic">Epic Summon</a></td><td class="num">—</td><td class="num">—</td><td class="num">85%</td><td class="num">15%</td></tr>
+<tr><td><a href="#en-summon-legend">Legend Summon</a></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">100%</td></tr>
+</tbody></table></div>
+<p>Grade odds are the same for all four legions.</p>
+<h3 id="en-guarantee">2-2. Multiple Minions at once (×10 and bundle guarantee)</h3>
+<ul>
+  <li>The ×10 summon at the Summoning Altar and multi-Minion shop items roll each Minion separately.</li>
+  <li>If no Minion of the guaranteed grade or higher has appeared before the last one, the last one is rolled with the lower grades removed (the "guaranteed slot" in the tables below).</li>
+  <li>If one has already appeared, the last one is rolled with the normal (single) odds.</li>
+  <li>The Legend Summon always gives Legend, so it has no guarantee rule.</li>
+</ul>
+<p><strong>Guaranteed slot (last Minion) grade odds</strong></p>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Summon type</th><th class="num">Common</th><th class="num">Rare</th><th class="num">Epic</th><th class="num">Legend</th></tr></thead>
+<tbody>
+<tr><td>Common Summon<br><small>×10 guarantee: Rare+</small></td><td class="num">—</td><td class="num">86.67%</td><td class="num">13.33%</td><td class="num">—</td></tr>
+<tr><td>Rare Summon<br><small>×10 guarantee: Epic+</small></td><td class="num">—</td><td class="num">—</td><td class="num">85%</td><td class="num">15%</td></tr>
+<tr><td>Epic Summon<br><small>×10 guarantee: Legend+</small></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">100%</td></tr>
+</tbody></table></div>
+<h3 id="en-summon-legions">2-3. Monster odds by legion</h3>
+<p>Odds of one monster = grade odds ÷ number of monsters in that grade. "Guaranteed slot" is the odds when the last Minion is rolled under the rule in 2-2.</p>
+<h4 id="en-summon-common">Common Summon</h4>
+<details class="prob-details" id="en-summon-common-beast">
+<summary>Common Summon · Beast Legion · 33 monsters</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Monster</th><th class="num">Single odds</th><th class="num">Guaranteed slot</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>Common · 17 monsters (5% each)</td><td class="num">85%</td><td class="num">—</td></tr>
+<tr><td>Acid Slime</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>Bat</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>Blue Slime</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>Creeper Vine</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>Fishman Spearman</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>Flower Fairy</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>Goblin</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>Goblin Pickpocket</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>Goblin Shieldbearer</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>Ice Bat</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>Kobold</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>Labyrinth Minotaur</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>Ogre Shaman</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>Orc Javelineer</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>Orc Warrior</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>Shroomy</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr><td>Slime</td><td class="num">5%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>Rare · 9 monsters (1.44% each)</td><td class="num">13%</td><td class="num">86.67%</td></tr>
+<tr><td>Goblin Archer</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr><td>Goblin Bomber</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr><td>Goblin Shaman</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr><td>Hobgoblin Team Lead</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr><td>Jelly Foreman</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr><td>Metal Slime</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr><td>Nurse Slime</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr><td>Ogre Bruiser</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr><td>Werewolf</td><td class="num">1.44%</td><td class="num">9.63%</td></tr>
+<tr class="prob-grade"><td>Epic · 7 monsters (0.29% each)</td><td class="num">2%</td><td class="num">13.33%</td></tr>
+<tr><td>Cerberus</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Flytrap</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Goblin Warlord</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Griffin</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Nine-Tailed Fox</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Orc Warchief</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Rainbow Slime</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="en-summon-common-necro">
+<summary>Common Summon · Necro Legion · 22 monsters</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Monster</th><th class="num">Single odds</th><th class="num">Guaranteed slot</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>Common · 7 monsters (12.14% each)</td><td class="num">85%</td><td class="num">—</td></tr>
+<tr><td>Empty Armor</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Ghost Intern</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Living Armor</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Skeleton Archer</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Skeleton Mage</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Skeleton Monk</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Zombie Clerk</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>Rare · 8 monsters (1.62% each)</td><td class="num">13%</td><td class="num">86.67%</td></tr>
+<tr><td>Banshee</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>Dullahan</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>Mummy</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>Plague Doctor</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>Skeleton Bishop</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>Skeleton Soldier</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>Skull Cannoneer</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>Vampire Knight</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr class="prob-grade"><td>Epic · 7 monsters (0.29% each)</td><td class="num">2%</td><td class="num">13.33%</td></tr>
+<tr><td>Anubis, Judge of the Dead</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Death Knight</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Grim Reaper</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Lich Trainee</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Patchwork Golem</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Skeleton Undertaker</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Vampire Countess</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="en-summon-common-demon">
+<summary>Common Summon · Demon Legion · 17 monsters</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Monster</th><th class="num">Single odds</th><th class="num">Guaranteed slot</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>Common · 4 monsters (21.25% each)</td><td class="num">85%</td><td class="num">—</td></tr>
+<tr><td>Fire Imp</td><td class="num">21.25%</td><td class="num">—</td></tr>
+<tr><td>Frost Sprite</td><td class="num">21.25%</td><td class="num">—</td></tr>
+<tr><td>Imp Secretary</td><td class="num">21.25%</td><td class="num">—</td></tr>
+<tr><td>Undine</td><td class="num">21.25%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>Rare · 8 monsters (1.62% each)</td><td class="num">13%</td><td class="num">86.67%</td></tr>
+<tr><td>Horned Demon</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>Ice Witch</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>Ironclad Fiend Knight</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>Mermaid Singer</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>Naga Witch</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>Salamander</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>Shadow Stalker</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr><td>Succubus</td><td class="num">1.62%</td><td class="num">10.83%</td></tr>
+<tr class="prob-grade"><td>Epic · 5 monsters (0.4% each)</td><td class="num">2%</td><td class="num">13.33%</td></tr>
+<tr><td>Archfiend General</td><td class="num">0.4%</td><td class="num">2.67%</td></tr>
+<tr><td>Dragon Priest</td><td class="num">0.4%</td><td class="num">2.67%</td></tr>
+<tr><td>Hellgate Warden</td><td class="num">0.4%</td><td class="num">2.67%</td></tr>
+<tr><td>Ifrit</td><td class="num">0.4%</td><td class="num">2.67%</td></tr>
+<tr><td>Mimic</td><td class="num">0.4%</td><td class="num">2.67%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="en-summon-common-giant">
+<summary>Common Summon · Giant Legion · 22 monsters</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Monster</th><th class="num">Single odds</th><th class="num">Guaranteed slot</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>Common · 4 monsters (21.25% each)</td><td class="num">85%</td><td class="num">—</td></tr>
+<tr><td>Earth Golem</td><td class="num">21.25%</td><td class="num">—</td></tr>
+<tr><td>Moss Troll</td><td class="num">21.25%</td><td class="num">—</td></tr>
+<tr><td>Wood Golem</td><td class="num">21.25%</td><td class="num">—</td></tr>
+<tr><td>Young Cyclops</td><td class="num">21.25%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>Rare · 11 monsters (1.18% each)</td><td class="num">13%</td><td class="num">86.67%</td></tr>
+<tr><td>Bronze Golem</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>Drake</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>Ettin</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>Frost Giant Huntress</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>Ice Golem</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>Magma Golem</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>Menhir Runecarver</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>Rock Golem</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>Tree Spirit</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>Wyvern</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr><td>Yeti</td><td class="num">1.18%</td><td class="num">7.88%</td></tr>
+<tr class="prob-grade"><td>Epic · 7 monsters (0.29% each)</td><td class="num">2%</td><td class="num">13.33%</td></tr>
+<tr><td>Adamantite Golem</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Cyclops Smith</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Frost Giant</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Gargoyle Guard</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Iron Golem</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Sea Serpent</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+<tr><td>Storm Giant</td><td class="num">0.29%</td><td class="num">1.9%</td></tr>
+</tbody></table></div>
+</details>
+<h4 id="en-summon-rare">Rare Summon</h4>
+<details class="prob-details" id="en-summon-rare-beast">
+<summary>Rare Summon · Beast Legion · 18 monsters</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Monster</th><th class="num">Single odds</th><th class="num">Guaranteed slot</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>Rare · 9 monsters (8.89% each)</td><td class="num">80%</td><td class="num">—</td></tr>
+<tr><td>Goblin Archer</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr><td>Goblin Bomber</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr><td>Goblin Shaman</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr><td>Hobgoblin Team Lead</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr><td>Jelly Foreman</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr><td>Metal Slime</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr><td>Nurse Slime</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr><td>Ogre Bruiser</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr><td>Werewolf</td><td class="num">8.89%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>Epic · 7 monsters (2.43% each)</td><td class="num">17%</td><td class="num">85%</td></tr>
+<tr><td>Cerberus</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Flytrap</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Goblin Warlord</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Griffin</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Nine-Tailed Fox</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Orc Warchief</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Rainbow Slime</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr class="prob-grade"><td>Legend · 2 monsters (1.5% each)</td><td class="num">3%</td><td class="num">15%</td></tr>
+<tr><td>Slime Emperor</td><td class="num">1.5%</td><td class="num">7.5%</td></tr>
+<tr><td>World Tree Sprout</td><td class="num">1.5%</td><td class="num">7.5%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="en-summon-rare-necro">
+<summary>Rare Summon · Necro Legion · 17 monsters</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Monster</th><th class="num">Single odds</th><th class="num">Guaranteed slot</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>Rare · 8 monsters (10% each)</td><td class="num">80%</td><td class="num">—</td></tr>
+<tr><td>Banshee</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>Dullahan</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>Mummy</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>Plague Doctor</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>Skeleton Bishop</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>Skeleton Soldier</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>Skull Cannoneer</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>Vampire Knight</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>Epic · 7 monsters (2.43% each)</td><td class="num">17%</td><td class="num">85%</td></tr>
+<tr><td>Anubis, Judge of the Dead</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Death Knight</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Grim Reaper</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Lich Trainee</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Patchwork Golem</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Skeleton Undertaker</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Vampire Countess</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr class="prob-grade"><td>Legend · 2 monsters (1.5% each)</td><td class="num">3%</td><td class="num">15%</td></tr>
+<tr><td>Bone Colossus</td><td class="num">1.5%</td><td class="num">7.5%</td></tr>
+<tr><td>Bone Dragon</td><td class="num">1.5%</td><td class="num">7.5%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="en-summon-rare-demon">
+<summary>Rare Summon · Demon Legion · 16 monsters</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Monster</th><th class="num">Single odds</th><th class="num">Guaranteed slot</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>Rare · 8 monsters (10% each)</td><td class="num">80%</td><td class="num">—</td></tr>
+<tr><td>Horned Demon</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>Ice Witch</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>Ironclad Fiend Knight</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>Mermaid Singer</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>Naga Witch</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>Salamander</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>Shadow Stalker</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>Succubus</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>Epic · 5 monsters (3.4% each)</td><td class="num">17%</td><td class="num">85%</td></tr>
+<tr><td>Archfiend General</td><td class="num">3.4%</td><td class="num">17%</td></tr>
+<tr><td>Dragon Priest</td><td class="num">3.4%</td><td class="num">17%</td></tr>
+<tr><td>Hellgate Warden</td><td class="num">3.4%</td><td class="num">17%</td></tr>
+<tr><td>Ifrit</td><td class="num">3.4%</td><td class="num">17%</td></tr>
+<tr><td>Mimic</td><td class="num">3.4%</td><td class="num">17%</td></tr>
+<tr class="prob-grade"><td>Legend · 3 monsters (1% each)</td><td class="num">3%</td><td class="num">15%</td></tr>
+<tr><td>Archdevil</td><td class="num">1%</td><td class="num">5%</td></tr>
+<tr><td>Flame Lord</td><td class="num">1%</td><td class="num">5%</td></tr>
+<tr><td>Snow Queen</td><td class="num">1%</td><td class="num">5%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="en-summon-rare-giant">
+<summary>Rare Summon · Giant Legion · 25 monsters</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Monster</th><th class="num">Single odds</th><th class="num">Guaranteed slot</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>Rare · 11 monsters (7.27% each)</td><td class="num">80%</td><td class="num">—</td></tr>
+<tr><td>Bronze Golem</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>Drake</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>Ettin</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>Frost Giant Huntress</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>Ice Golem</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>Magma Golem</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>Menhir Runecarver</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>Rock Golem</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>Tree Spirit</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>Wyvern</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr><td>Yeti</td><td class="num">7.27%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>Epic · 7 monsters (2.43% each)</td><td class="num">17%</td><td class="num">85%</td></tr>
+<tr><td>Adamantite Golem</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Cyclops Smith</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Frost Giant</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Gargoyle Guard</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Iron Golem</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Sea Serpent</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr><td>Storm Giant</td><td class="num">2.43%</td><td class="num">12.14%</td></tr>
+<tr class="prob-grade"><td>Legend · 7 monsters (0.43% each)</td><td class="num">3%</td><td class="num">15%</td></tr>
+<tr><td>Ancient Colossus</td><td class="num">0.43%</td><td class="num">2.14%</td></tr>
+<tr><td>Baby Dragon</td><td class="num">0.43%</td><td class="num">2.14%</td></tr>
+<tr><td>Behemoth</td><td class="num">0.43%</td><td class="num">2.14%</td></tr>
+<tr><td>Elder Dragon</td><td class="num">0.43%</td><td class="num">2.14%</td></tr>
+<tr><td>Mountain-Bearing Titan</td><td class="num">0.43%</td><td class="num">2.14%</td></tr>
+<tr><td>Ogre Security Chief</td><td class="num">0.43%</td><td class="num">2.14%</td></tr>
+<tr><td>Orichalcum Golem</td><td class="num">0.43%</td><td class="num">2.14%</td></tr>
+</tbody></table></div>
+</details>
+<h4 id="en-summon-epic">Epic Summon</h4>
+<details class="prob-details" id="en-summon-epic-beast">
+<summary>Epic Summon · Beast Legion · 9 monsters</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Monster</th><th class="num">Single odds</th><th class="num">Guaranteed slot</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>Epic · 7 monsters (12.14% each)</td><td class="num">85%</td><td class="num">—</td></tr>
+<tr><td>Cerberus</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Flytrap</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Goblin Warlord</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Griffin</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Nine-Tailed Fox</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Orc Warchief</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Rainbow Slime</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>Legend · 2 monsters (7.5% each)</td><td class="num">15%</td><td class="num">100%</td></tr>
+<tr><td>Slime Emperor</td><td class="num">7.5%</td><td class="num">50%</td></tr>
+<tr><td>World Tree Sprout</td><td class="num">7.5%</td><td class="num">50%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="en-summon-epic-necro">
+<summary>Epic Summon · Necro Legion · 9 monsters</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Monster</th><th class="num">Single odds</th><th class="num">Guaranteed slot</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>Epic · 7 monsters (12.14% each)</td><td class="num">85%</td><td class="num">—</td></tr>
+<tr><td>Anubis, Judge of the Dead</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Death Knight</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Grim Reaper</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Lich Trainee</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Patchwork Golem</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Skeleton Undertaker</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Vampire Countess</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>Legend · 2 monsters (7.5% each)</td><td class="num">15%</td><td class="num">100%</td></tr>
+<tr><td>Bone Colossus</td><td class="num">7.5%</td><td class="num">50%</td></tr>
+<tr><td>Bone Dragon</td><td class="num">7.5%</td><td class="num">50%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="en-summon-epic-demon">
+<summary>Epic Summon · Demon Legion · 8 monsters</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Monster</th><th class="num">Single odds</th><th class="num">Guaranteed slot</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>Epic · 5 monsters (17% each)</td><td class="num">85%</td><td class="num">—</td></tr>
+<tr><td>Archfiend General</td><td class="num">17%</td><td class="num">—</td></tr>
+<tr><td>Dragon Priest</td><td class="num">17%</td><td class="num">—</td></tr>
+<tr><td>Hellgate Warden</td><td class="num">17%</td><td class="num">—</td></tr>
+<tr><td>Ifrit</td><td class="num">17%</td><td class="num">—</td></tr>
+<tr><td>Mimic</td><td class="num">17%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>Legend · 3 monsters (5% each)</td><td class="num">15%</td><td class="num">100%</td></tr>
+<tr><td>Archdevil</td><td class="num">5%</td><td class="num">33.33%</td></tr>
+<tr><td>Flame Lord</td><td class="num">5%</td><td class="num">33.33%</td></tr>
+<tr><td>Snow Queen</td><td class="num">5%</td><td class="num">33.33%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="en-summon-epic-giant">
+<summary>Epic Summon · Giant Legion · 14 monsters</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Monster</th><th class="num">Single odds</th><th class="num">Guaranteed slot</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>Epic · 7 monsters (12.14% each)</td><td class="num">85%</td><td class="num">—</td></tr>
+<tr><td>Adamantite Golem</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Cyclops Smith</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Frost Giant</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Gargoyle Guard</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Iron Golem</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Sea Serpent</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr><td>Storm Giant</td><td class="num">12.14%</td><td class="num">—</td></tr>
+<tr class="prob-grade"><td>Legend · 7 monsters (2.14% each)</td><td class="num">15%</td><td class="num">100%</td></tr>
+<tr><td>Ancient Colossus</td><td class="num">2.14%</td><td class="num">14.29%</td></tr>
+<tr><td>Baby Dragon</td><td class="num">2.14%</td><td class="num">14.29%</td></tr>
+<tr><td>Behemoth</td><td class="num">2.14%</td><td class="num">14.29%</td></tr>
+<tr><td>Elder Dragon</td><td class="num">2.14%</td><td class="num">14.29%</td></tr>
+<tr><td>Mountain-Bearing Titan</td><td class="num">2.14%</td><td class="num">14.29%</td></tr>
+<tr><td>Ogre Security Chief</td><td class="num">2.14%</td><td class="num">14.29%</td></tr>
+<tr><td>Orichalcum Golem</td><td class="num">2.14%</td><td class="num">14.29%</td></tr>
+</tbody></table></div>
+</details>
+<h4 id="en-summon-legend">Legend Summon</h4>
+<details class="prob-details" id="en-summon-legend-beast">
+<summary>Legend Summon · Beast Legion · 2 monsters</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Monster</th><th class="num">Single odds</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>Legend · 2 monsters (50% each)</td><td class="num">100%</td></tr>
+<tr><td>Slime Emperor</td><td class="num">50%</td></tr>
+<tr><td>World Tree Sprout</td><td class="num">50%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="en-summon-legend-necro">
+<summary>Legend Summon · Necro Legion · 2 monsters</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Monster</th><th class="num">Single odds</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>Legend · 2 monsters (50% each)</td><td class="num">100%</td></tr>
+<tr><td>Bone Colossus</td><td class="num">50%</td></tr>
+<tr><td>Bone Dragon</td><td class="num">50%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="en-summon-legend-demon">
+<summary>Legend Summon · Demon Legion · 3 monsters</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Monster</th><th class="num">Single odds</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>Legend · 3 monsters (33.33% each)</td><td class="num">100%</td></tr>
+<tr><td>Archdevil</td><td class="num">33.33%</td></tr>
+<tr><td>Flame Lord</td><td class="num">33.33%</td></tr>
+<tr><td>Snow Queen</td><td class="num">33.33%</td></tr>
+</tbody></table></div>
+</details>
+<details class="prob-details" id="en-summon-legend-giant">
+<summary>Legend Summon · Giant Legion · 7 monsters</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Monster</th><th class="num">Single odds</th></tr></thead>
+<tbody>
+<tr class="prob-grade"><td>Legend · 7 monsters (14.29% each)</td><td class="num">100%</td></tr>
+<tr><td>Ancient Colossus</td><td class="num">14.29%</td></tr>
+<tr><td>Baby Dragon</td><td class="num">14.29%</td></tr>
+<tr><td>Behemoth</td><td class="num">14.29%</td></tr>
+<tr><td>Elder Dragon</td><td class="num">14.29%</td></tr>
+<tr><td>Mountain-Bearing Titan</td><td class="num">14.29%</td></tr>
+<tr><td>Ogre Security Chief</td><td class="num">14.29%</td></tr>
+<tr><td>Orichalcum Golem</td><td class="num">14.29%</td></tr>
+</tbody></table></div>
+</details>
+
+<h2 id="en-shop">3. Shop hiring and Daily Deals</h2>
+<ul>
+  <li>Shop hiring gives Minions right away, with the same odds as the summon type in the "Odds table" column (tables in section 2).</li>
+  <li>Items that give 2 or more Minions follow the guarantee rule in 2-2.</li>
+  <li>Each day (by device date), 3 Daily Deals are picked from the list below. The deal list is decided regardless of purchases, and each deal has the same odds as the matching summon type or gear box.</li>
+</ul>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Item</th><th class="num">Qty</th><th>Odds table</th><th>Guarantee</th></tr></thead>
+<tbody>
+<tr><td>Urgent Job Post<br><small>Hiring · 100 Gold</small></td><td class="num">1</td><td><a href="#en-summon-common">Common Summon</a></td><td>—</td></tr>
+<tr><td>Veteran Scout<br><small>Hiring · 600 Gold</small></td><td class="num">1</td><td><a href="#en-summon-rare">Rare Summon</a></td><td>—</td></tr>
+<tr><td>Executive Scout<br><small>Hiring · 2,000 Gold</small></td><td class="num">1</td><td><a href="#en-summon-epic">Epic Summon</a></td><td>—</td></tr>
+<tr><td>Job Fair<br><small>Hiring · 500 Gold</small></td><td class="num">10</td><td><a href="#en-summon-common">Common Summon</a></td><td>Last one Rare+</td></tr>
+<tr><td>Smithy Backdoor Box<br><small>Gear Boxes · 500 Gold</small></td><td class="num">1</td><td><a href="#en-gear-any">No grade limit</a></td><td>—</td></tr>
+<tr><td>Starfall Box<br><small>Gear Boxes · 800 Gold</small></td><td class="num">1</td><td><a href="#en-gear-rare">Rare or higher</a></td><td>—</td></tr>
+<tr><td>Meteor Box<br><small>Gear Boxes · 2,400 Gold</small></td><td class="num">1</td><td><a href="#en-gear-epic">Epic or higher</a></td><td>—</td></tr>
+<tr><td>Urgent Job Post Sale<br><small>Daily Deals · 60 Gold<br><small>was 100</small></small></td><td class="num">1</td><td><a href="#en-summon-common">Common Summon</a></td><td>—</td></tr>
+<tr><td>Urgent Hire Trio<br><small>Daily Deals · 240 Gold<br><small>was 300</small></small></td><td class="num">3</td><td><a href="#en-summon-common">Common Summon</a></td><td>Last one Rare+</td></tr>
+<tr><td>Job Fair Sale<br><small>Daily Deals · 400 Gold<br><small>was 500</small></small></td><td class="num">10</td><td><a href="#en-summon-common">Common Summon</a></td><td>Last one Rare+</td></tr>
+<tr><td>Backdoor Box Pair<br><small>Daily Deals · 800 Gold<br><small>was 1,000</small></small></td><td class="num">2</td><td><a href="#en-gear-any">No grade limit</a></td><td>—</td></tr>
+<tr><td>Veteran Duo<br><small>Daily Deals · 900 Gold<br><small>was 1,200</small></small></td><td class="num">2</td><td><a href="#en-summon-rare">Rare Summon</a></td><td>Last one Epic+</td></tr>
+<tr><td>Executive Scout Sale<br><small>Daily Deals · 1,400 Gold<br><small>was 2,000</small></small></td><td class="num">1</td><td><a href="#en-summon-epic">Epic Summon</a></td><td>—</td></tr>
+<tr><td>Starfall Box Sale<br><small>Daily Deals · 500 Gold<br><small>was 800</small></small></td><td class="num">1</td><td><a href="#en-gear-rare">Rare or higher</a></td><td>—</td></tr>
+<tr><td>Meteor Box Sale<br><small>Daily Deals · 1,800 Gold<br><small>was 2,400</small></small></td><td class="num">1</td><td><a href="#en-gear-epic">Epic or higher</a></td><td>—</td></tr>
+</tbody></table></div>
+
+<h2 id="en-gear">4. Gear box odds</h2>
+<ul>
+  <li>Each box gives 1 gear item, decided in this order: ① grade → ② gear type → ③ sub-stats.</li>
+  <li>Grade odds depend on your Castle level. A "... or higher" box removes the lower grades and splits the rest in the same ratio.</li>
+  <li>Items with several boxes roll each box separately, with no guarantee.</li>
+</ul>
+<h3>4-1. Grade odds by Castle level</h3>
+<h4 id="en-gear-any">No grade limit</h4>
+<p><small>Used by: Smithy Backdoor Box, Backdoor Box Pair</small></p>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Castle level</th><th class="num">Common</th><th class="num">Rare</th><th class="num">Epic</th><th class="num">Legend</th></tr></thead>
+<tbody>
+<tr><td>Lv.1–3</td><td class="num">80%</td><td class="num">20%</td><td class="num">—</td><td class="num">—</td></tr>
+<tr><td>Lv.4–7</td><td class="num">55%</td><td class="num">35%</td><td class="num">10%</td><td class="num">—</td></tr>
+<tr><td>Lv.8–11</td><td class="num">35%</td><td class="num">40%</td><td class="num">20%</td><td class="num">5%</td></tr>
+<tr><td>Lv.12–30</td><td class="num">20%</td><td class="num">40%</td><td class="num">28%</td><td class="num">12%</td></tr>
+</tbody></table></div>
+<h4 id="en-gear-rare">Rare or higher</h4>
+<p><small>Used by: Starfall Box, Starfall Box Sale</small></p>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Castle level</th><th class="num">Common</th><th class="num">Rare</th><th class="num">Epic</th><th class="num">Legend</th></tr></thead>
+<tbody>
+<tr><td>Lv.1–3</td><td class="num">—</td><td class="num">100%</td><td class="num">—</td><td class="num">—</td></tr>
+<tr><td>Lv.4–7</td><td class="num">—</td><td class="num">77.78%</td><td class="num">22.22%</td><td class="num">—</td></tr>
+<tr><td>Lv.8–11</td><td class="num">—</td><td class="num">61.54%</td><td class="num">30.77%</td><td class="num">7.69%</td></tr>
+<tr><td>Lv.12–30</td><td class="num">—</td><td class="num">50%</td><td class="num">35%</td><td class="num">15%</td></tr>
+</tbody></table></div>
+<h4 id="en-gear-epic">Epic or higher</h4>
+<p><small>Used by: Meteor Box, Meteor Box Sale</small></p>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Castle level</th><th class="num">Common</th><th class="num">Rare</th><th class="num">Epic</th><th class="num">Legend</th></tr></thead>
+<tbody>
+<tr><td>Lv.1–7</td><td class="num">—</td><td class="num">—</td><td class="num">100%</td><td class="num">—</td></tr>
+<tr><td>Lv.8–11</td><td class="num">—</td><td class="num">—</td><td class="num">80%</td><td class="num">20%</td></tr>
+<tr><td>Lv.12–30</td><td class="num">—</td><td class="num">—</td><td class="num">70%</td><td class="num">30%</td></tr>
+</tbody></table></div>
+<h3 id="en-gear-bases">4-2. Gear types</h3>
+<p>There are 48 gear types. Regardless of grade, each type is equally likely (2.08%).</p>
+<details class="prob-details">
+<summary>List of 48 gear types</summary>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Gear</th><th>Slot</th><th>Main stat</th><th class="num">Single odds</th></tr></thead>
+<tbody>
+<tr><td>Steel Sword</td><td>Main Hand</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Battle Axe</td><td>Main Hand</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Spiked Club</td><td>Main Hand</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Steel Dagger</td><td>Main Hand</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Magic Wand</td><td>Main Hand</td><td>Skill Power</td><td class="num">2.08%</td></tr>
+<tr><td>Flame Sword</td><td>Main Hand</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Frost Sword</td><td>Main Hand</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Holy Mace</td><td>Main Hand</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Venom Dagger</td><td>Main Hand</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Greatsword</td><td>Main Hand</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Long Spear</td><td>Main Hand</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>War Hammer</td><td>Main Hand</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Mana Staff</td><td>Main Hand</td><td>Skill Power</td><td class="num">2.08%</td></tr>
+<tr><td>Longbow</td><td>Main Hand</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Thunder Hammer</td><td>Main Hand</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Shadow Scythe</td><td>Main Hand</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Glacier Staff</td><td>Main Hand</td><td>Skill Power</td><td class="num">2.08%</td></tr>
+<tr><td>Wooden Shield</td><td>Off Hand</td><td>DEF</td><td class="num">2.08%</td></tr>
+<tr><td>Tower Shield</td><td>Off Hand</td><td>DEF</td><td class="num">2.08%</td></tr>
+<tr><td>Crystal Orb</td><td>Off Hand</td><td>Skill Power</td><td class="num">2.08%</td></tr>
+<tr><td>Wizard Hat</td><td>Head</td><td>HP</td><td class="num">2.08%</td></tr>
+<tr><td>Leather Hood</td><td>Head</td><td>HP</td><td class="num">2.08%</td></tr>
+<tr><td>Steel Helm</td><td>Head</td><td>HP</td><td class="num">2.08%</td></tr>
+<tr><td>Silk Gloves</td><td>Gloves</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Leather Gloves</td><td>Gloves</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Steel Gauntlets</td><td>Gloves</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Mana Robe</td><td>Body</td><td>HP</td><td class="num">2.08%</td></tr>
+<tr><td>Leather Vest</td><td>Body</td><td>HP</td><td class="num">2.08%</td></tr>
+<tr><td>Bone Armor</td><td>Body</td><td>HP</td><td class="num">2.08%</td></tr>
+<tr><td>Chainmail</td><td>Body</td><td>HP</td><td class="num">2.08%</td></tr>
+<tr><td>Plate Armor</td><td>Body</td><td>DEF</td><td class="num">2.08%</td></tr>
+<tr><td>Turtle Shell</td><td>Body</td><td>DEF</td><td class="num">2.08%</td></tr>
+<tr><td>Cloth Pants</td><td>Legs</td><td>HP</td><td class="num">2.08%</td></tr>
+<tr><td>Leather Pants</td><td>Legs</td><td>HP</td><td class="num">2.08%</td></tr>
+<tr><td>Steel Greaves</td><td>Legs</td><td>HP</td><td class="num">2.08%</td></tr>
+<tr><td>Cloth Shoes</td><td>Boots</td><td>Move Speed</td><td class="num">2.08%</td></tr>
+<tr><td>Leather Boots</td><td>Boots</td><td>Move Speed</td><td class="num">2.08%</td></tr>
+<tr><td>Winged Boots</td><td>Boots</td><td>Move Speed</td><td class="num">2.08%</td></tr>
+<tr><td>Steel Boots</td><td>Boots</td><td>DEF</td><td class="num">2.08%</td></tr>
+<tr><td>Pearl Earring</td><td>Earring</td><td>Skill Power</td><td class="num">2.08%</td></tr>
+<tr><td>Star Earring</td><td>Earring</td><td>CD Reduction</td><td class="num">2.08%</td></tr>
+<tr><td>Sapphire Amulet</td><td>Necklace</td><td>Skill Power</td><td class="num">2.08%</td></tr>
+<tr><td>Vampire Fang</td><td>Necklace</td><td>Lifesteal</td><td class="num">2.08%</td></tr>
+<tr><td>Ruby Ring</td><td>Ring</td><td>ATK</td><td class="num">2.08%</td></tr>
+<tr><td>Silver Ring</td><td>Ring</td><td>CD Reduction</td><td class="num">2.08%</td></tr>
+<tr><td>Leather Belt</td><td>Belt</td><td>HP</td><td class="num">2.08%</td></tr>
+<tr><td>Lucky Charm Belt</td><td>Belt</td><td>HP</td><td class="num">2.08%</td></tr>
+<tr><td>Golden Belt</td><td>Belt</td><td>CD Reduction</td><td class="num">2.08%</td></tr>
+</tbody></table></div>
+</details>
+<h3 id="en-gear-subs">4-3. Sub-stats</h3>
+<p>The number of sub-stats depends on the grade. Sub-stats are picked evenly, without repeats, from the stats other than the item's main stat, and each value is an equally likely whole number within the range.</p>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Grade</th><th class="num">Sub-stats</th></tr></thead>
+<tbody>
+<tr><td>Common</td><td class="num">0</td></tr>
+<tr><td>Rare</td><td class="num">1</td></tr>
+<tr><td>Epic</td><td class="num">1</td></tr>
+<tr><td>Legend</td><td class="num">2</td></tr>
+</tbody></table></div>
+<p>There are 7 stats. The first sub-stat is one of the 6 stats other than the main stat (16.67% each); the second is one of the remaining 5 (20% each).</p>
+<div class="prob-scroll"><table class="prob-table">
+<thead><tr><th>Stat</th><th>Value range</th><th class="num">Odds per value</th></tr></thead>
+<tbody>
+<tr><td>ATK</td><td>+1% ~ +3%</td><td class="num">33.33%</td></tr>
+<tr><td>HP</td><td>+1% ~ +4%</td><td class="num">25%</td></tr>
+<tr><td>DEF</td><td>+1</td><td class="num">100%</td></tr>
+<tr><td>Skill Power</td><td>+1% ~ +4%</td><td class="num">25%</td></tr>
+<tr><td>Move Speed</td><td>+2 ~ +5</td><td class="num">25%</td></tr>
+<tr><td>Lifesteal</td><td>1% ~ 2%</td><td class="num">50%</td></tr>
+<tr><td>CD Reduction</td><td>-1% ~ -3%</td><td class="num">33.33%</td></tr>
+</tbody></table></div>
+
+<h2 id="en-contact">5. Changes and contact</h2>
+<ul>
+  <li>Before changing odds or item contents, we will announce it in the Game and on this page, and update the date on this page.</li>
+  <li>If you find an error or have a question, contact <a href="mailto:help@pinkmandarin.com">help@pinkmandarin.com</a>.</li>
+  <li>Related: <a href="terms.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a></li>
+</ul>
+<h3>History</h3>
+<ul>
+  <li>November 1, 2026: First published</li>
+</ul>
+</div>
+</div>
+
+    </div>
+  </main>
+
+  <footer class="footer" data-base="../"></footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
