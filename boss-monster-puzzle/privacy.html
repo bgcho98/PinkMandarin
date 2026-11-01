@@ -61,7 +61,7 @@
             <tr><td>토스 계정 식별값 (토스 버전. 토스가 이 게임에 주는 익명 키를 한 방향 암호화(SHA-256)해 만든 ID입니다. 익명 키 원문은 저장하지 않습니다)</td><td>게임을 시작할 때 토스 로그인으로 전달</td></tr>
             <tr><td>마왕 이름</td><td>이용자가 게임에서 직접 정할 때</td></tr>
             <tr><td>게임 진행 데이터 (골드, 군단, 몬스터, 마왕, 레벨, 방어 기록)</td><td>게임을 하는 동안 자동으로 만들어짐</td></tr>
-            <tr><td>초대 기록 (초대한 사람의 계정 식별자, 초대받은 사람의 마왕 이름, 보상 지급 여부, 기록 시각)</td><td>친구의 공유 글이나 초대로 시작한 이용자가 첫 방어에 성공할 때</td></tr>
+            <tr><td>초대 기록 (초대한 사람의 계정 식별자, 초대받은 사람의 마왕 이름, 보상 지급 여부, 계정 연결 확인 여부, 기록 시각)과 앱 초대 코드(계정 식별자에서 만든 6자리 코드)</td><td>친구의 공유 글이나 초대 코드로 시작한 이용자가 첫 방어에 성공할 때. 초대 코드는 앱에서 친구 초대를 처음 열 때 만듭니다</td></tr>
             <tr><td>앱 범위 사용자 ID (페이스북이 제공하는 경우에만)</td><td>로그인할 때. 데이터 삭제 요청이 누구의 것인지 찾는 데만 씁니다</td></tr>
             <tr><td>삭제 기록 (계정 식별자, 삭제 시각)</td><td>데이터를 지울 때. 지운 기록이 기기에서 서버로 다시 올라가지 않게 합니다</td></tr>
             <tr><td>광고 시청 기록 (광고 요청 ID, 계정 식별자, 시청 확인 여부, 시각)</td><td>이용자가 광고를 보고 몬스터를 소환할 때. 광고를 끝까지 봤는지 확인해 보상을 주는 데만 씁니다</td></tr>
@@ -171,7 +171,7 @@
             <tr><td>Toss account identifier (Toss version; an ID made by one-way hashing (SHA-256) the anonymous key Toss issues for this game. The anonymous key itself is not stored)</td><td>Provided through Toss sign-in when you start the Game</td></tr>
             <tr><td>Demon Lord name</td><td>When you choose it in the Game</td></tr>
             <tr><td>Game progress data (gold, legion, monsters, Demon Lords, level, defense records)</td><td>Created automatically while you play</td></tr>
-            <tr><td>Invite records (the inviter's account identifier, the invitee's Demon Lord name, reward status, time)</td><td>When a player who started from a friend's post or invite wins their first defense</td></tr>
+            <tr><td>Invite records (the inviter's account identifier, the invitee's Demon Lord name, reward status, whether account linking was confirmed, time) and app invite codes (a 6-character code made from the account identifier)</td><td>When a player who started from a friend's post or invite code wins their first defense. An invite code is made the first time you open friend invites in the app</td></tr>
             <tr><td>App-scoped user ID (only if Facebook provides it)</td><td>At sign-in. Used only to match data deletion requests</td></tr>
             <tr><td>Deletion record (account identifier, deletion time)</td><td>When your data is deleted. Prevents deleted data from being uploaded again from your device</td></tr>
             <tr><td>Ad view records (ad request ID, account identifier, whether the view was verified, time)</td><td>When you watch an ad to summon a monster. Used only to confirm you watched the ad before giving the reward</td></tr>
