@@ -50,17 +50,19 @@
         </div>
         <div class="legal-content">
           <p>PinkMandarin(이하 "회사")은 내가 보스 몬스터다(이하 "게임") 이용자의 개인정보를 중요하게 여기며, 「개인정보 보호법」 등 관련 법령을 지킵니다.</p>
-          <div class="warning-box"><p><strong>개정 안내 (2026년 11월 1일):</strong> 이용 분석 도구(Google Analytics for Firebase)와 유료 골드 결제 기록을 반영해 수집 항목·목적·보유 기간·위탁과 국외 이전 내용을 고쳤습니다. 이전 방침은 2026년 9월 25일부터 시행했습니다.</p></div>
+          <div class="warning-box"><p><strong>개정 안내 (2026년 11월 1일):</strong> 이용 분석 도구(Google Analytics for Firebase), 유료 골드 결제 기록, Apple로 로그인, 연합 대화 신고 기록을 반영해 수집 항목·목적·보유 기간·위탁과 국외 이전 내용을 고쳤습니다. 이전 방침은 2026년 9월 25일부터 시행했습니다.</p></div>
           <div class="warning-box"><p><strong>개발 중 안내:</strong> 이 게임은 아직 개발 중입니다. 테스트 기간에는 기능·밸런스가 바뀌거나 게임 데이터가 초기화될 수 있습니다.</p></div>
 
           <h2>1. 수집하는 개인정보</h2>
           <table>
             <tr><th>수집 항목</th><th>수집 시점·방법</th></tr>
-            <tr><td>계정 식별자(Firebase가 만든 무작위 ID)</td><td>Google 로그인 또는 게스트로 시작할 때</td></tr>
+            <tr><td>계정 식별자(Firebase가 만든 무작위 ID)</td><td>Google 로그인·Apple로 로그인 또는 게스트로 시작할 때</td></tr>
             <tr><td>Google 계정 이메일 주소</td><td>Google 로그인을 할 때 (게스트는 수집하지 않음)</td></tr>
+            <tr><td>Apple ID 이메일 주소(Apple의 "이메일 가리기"를 고르면 Apple이 만든 전달용 주소)와 이름(처음 로그인할 때 한 번)</td><td>Apple로 로그인을 할 때 (iOS)</td></tr>
             <tr><td>플레이어 이름</td><td>이용자가 게임에서 직접 등록할 때</td></tr>
             <tr><td>게임 진행 데이터 (재화, 던전 배치, 부하·장비, 전투 기록, 도감, 업적 등)</td><td>게임을 하는 동안 자동으로 만들어짐</td></tr>
             <tr><td>연합 대화 내용, 레전드 소환 소식(플레이어 이름·얻은 몹)</td><td>연합에서 대화를 보내거나 레전드 등급 몹을 소환할 때</td></tr>
+            <tr><td>신고 기록: 신고한 이용자와 신고된 이용자의 계정 식별자, 신고된 글의 사본, 신고 사유, 신고 시각 / 차단 목록(이용자가 차단한 계정 식별자, 게임 진행 데이터에 저장)</td><td>이용자가 연합 대화의 글을 신고하거나 다른 이용자를 차단할 때</td></tr>
             <tr><td>결제 기록: 스토어 거래 번호(주문 번호), 상품 ID, 지급한 골드 양, 스토어 종류(Google Play·App Store), 처리 시각, 계정 식별자</td><td>유료 골드를 결제할 때, 회사 서버가 스토어에 구매를 확인하며 저장</td></tr>
             <tr><td>이용 기록과 기기 정보: 앱 인스턴스 ID(설치마다 만들어지는 무작위 ID), iOS의 앱 공급업체 식별자(IDFV), 기기 모델·운영체제 버전·앱 버전·언어·국가와 지역, 첫 실행·세션·이용 시간, 게임 안 행동 기록(누른 버튼의 이름이나 게임이 정해 둔 버튼 글과 그 화면 — 플레이어 이름처럼 이용자가 입력한 글은 보내지 않음, 본 화면, 소환·상점 구매·결제한 상품과 받은 골드·전투 시작과 결과·레벨 업·로그인 방법 등, 골드를 얻고 쓴 양), 스토어 결제 이벤트(상품·가격·통화)</td><td>게임을 하는 동안 Google Analytics for Firebase가 자동으로 수집</td></tr>
             <tr><td>접속 기록 (IP 주소 등)</td><td>로그인·저장·결제 확인 요청을 처리하는 과정에서 Google Firebase·Google Cloud가 자동으로 처리</td></tr>
@@ -75,6 +77,7 @@
             <li>연합 대화와 레전드 소환 소식 표시 (같은 연합원 또는 다른 이용자에게 보임)</li>
             <li>유료 골드 지급: 스토어에 구매를 확인하고, 같은 구매로 골드를 두 번 주거나 다른 계정에 주는 것을 막고, 결제 문의·청약철회·환불을 처리함</li>
             <li>이용 분석: 화면과 기능을 얼마나 쓰는지 통계로 보고 게임 밸런스·화면·오류를 개선함 (광고에 쓰지 않음)</li>
+            <li>신고된 글 검토와 처리(삭제, 대화·이용 제한), 차단한 이용자의 글 숨기기</li>
             <li>부정 이용 방지와 문의 대응</li>
           </ul>
 
@@ -84,6 +87,7 @@
             <li><strong>결제 기록:</strong> 중복 지급 방지와 환불 처리를 위해 계정을 삭제해도 남기며, 관련 법령(「전자상거래 등에서의 소비자보호에 관한 법률」의 대금결제 및 재화 등의 공급에 관한 기록 5년)에서 정한 기간 동안 보관한 뒤 파기합니다.</li>
             <li><strong>이용 기록(분석):</strong> Google Analytics에 설정한 데이터 보존 기간(최대 14개월)이 지나면 자동으로 지워집니다. 개인을 알아볼 수 없는 집계 통계는 그 뒤에도 남을 수 있습니다.</li>
             <li><strong>연합 대화·레전드 소환 소식:</strong> 다른 이용자와 함께 보는 글이라 계정을 삭제해도 남을 수 있습니다. 아래 이메일로 요청하면 지웁니다.</li>
+            <li><strong>신고 기록:</strong> 신고 처리를 마친 뒤 같은 이용자의 반복 위반을 확인하기 위해 1년 동안 보관한 뒤 파기합니다.</li>
             <li><strong>기기 데이터:</strong> 게임을 삭제하거나 로그아웃하면 기기에서 지워집니다.</li>
             <li>1년 동안 로그인하지 않은 계정은 미리 알린 뒤 삭제할 수 있습니다.</li>
           </ul>
@@ -93,7 +97,7 @@
           <table>
             <colgroup><col style="width:30%"><col></colgroup>
             <tr><th>받는 자</th><th>Google LLC (Google Firebase·Google Cloud)</th></tr>
-            <tr><td>이전되는 항목</td><td>계정 식별자, 이메일 주소(Google 로그인 시), 플레이어 이름, 게임 진행 데이터, 연합 대화·소환 소식, 결제 기록, 접속 기록</td></tr>
+            <tr><td>이전되는 항목</td><td>계정 식별자, 이메일 주소(Google·Apple 로그인 시), 플레이어 이름, 신고 기록, 게임 진행 데이터, 연합 대화·소환 소식, 결제 기록, 접속 기록</td></tr>
             <tr><td>이전 국가·방법</td><td>게임 데이터와 결제 기록은 대한민국 서울 리전(asia-northeast3)에 저장됩니다. 로그인 처리는 미국 등 Google의 전 세계 서버에서 이루어질 수 있으며, 로그인·저장·결제 확인 요청 때마다 암호화된 네트워크로 전송됩니다.</td></tr>
             <tr><td>목적</td><td>로그인 처리, 게임 데이터 저장, 결제 확인과 골드 지급 기록</td></tr>
             <tr><td>보유 기간</td><td>계정 삭제 시까지 (결제 기록은 3절의 기간)</td></tr>
@@ -154,11 +158,13 @@
           <h2>1. Information We Collect</h2>
           <table>
             <tr><th>Information</th><th>When / How</th></tr>
-            <tr><td>Account identifier (a random ID created by Firebase)</td><td>When you sign in with Google or start as a guest</td></tr>
+            <tr><td>Account identifier (a random ID created by Firebase)</td><td>When you sign in with Google, sign in with Apple, or start as a guest</td></tr>
             <tr><td>Google account email address</td><td>When you sign in with Google (not collected for guests)</td></tr>
+            <tr><td>Apple ID email address (an Apple-generated relay address if you choose "Hide My Email") and name (once, at the first sign-in)</td><td>When you sign in with Apple (iOS)</td></tr>
             <tr><td>Player name</td><td>When you register it in the Game</td></tr>
             <tr><td>Game progress data (currency, dungeon layout, minions and gear, battle records, codex, achievements, etc.)</td><td>Created automatically while you play</td></tr>
             <tr><td>Union chat messages and Legend summon news (player name and monster obtained)</td><td>When you send a message in your union or summon a Legend monster</td></tr>
+            <tr><td>Report records: account identifiers of the reporter and the reported player, a copy of the reported message, the reason, and the time / block list (account identifiers you blocked, stored in your game progress data)</td><td>When you report a union chat message or block another player</td></tr>
             <tr><td>Payment records: store transaction (order) number, product ID, amount of Gold granted, store (Google Play or App Store), time processed, account identifier</td><td>When you buy paid Gold; saved when our server confirms the purchase with the store</td></tr>
             <tr><td>Usage and device information: app instance ID (a random ID created for each install), identifier for vendor (IDFV) on iOS, device model, OS version, app version, language, country and region, first open, sessions and engagement time, in-game activity (the name or game-defined label of buttons pressed and their screens — text entered by players, such as player names, is not sent, screens viewed, summons, shop purchases, purchased products and Gold received, battle starts and results, level-ups, sign-in method, etc., and Gold earned and spent), and store purchase events (product, price, currency)</td><td>Collected automatically by Google Analytics for Firebase while you play</td></tr>
             <tr><td>Access logs (such as IP address)</td><td>Processed automatically by Google Firebase and Google Cloud when handling sign-in, save, and purchase confirmation requests</td></tr>
@@ -171,6 +177,7 @@
             <li>Storing game progress on the server so you can continue on a new device or after reinstalling</li>
             <li>Displaying player names and preventing duplicates</li>
             <li>Showing union chat and Legend summon news (visible to union members or other users)</li>
+            <li>Reviewing and handling reported messages (removal, chat or account restrictions) and hiding messages from players you blocked</li>
             <li>Granting paid Gold: confirming purchases with the store, preventing the same purchase from granting Gold twice or to another account, and handling payment inquiries, withdrawals, and refunds</li>
             <li>Usage analytics: understanding how screens and features are used, as statistics, to improve game balance, screens, and errors (not used for ads)</li>
             <li>Preventing abuse and responding to inquiries</li>
@@ -182,6 +189,7 @@
             <li><strong>Payment records:</strong> Kept even after account deletion to prevent duplicate grants and handle refunds, for the period required by applicable law (5 years for records on payment and supply of goods under the Act on the Consumer Protection in Electronic Commerce of Korea), then destroyed.</li>
             <li><strong>Usage records (analytics):</strong> Deleted automatically after the data retention period set in Google Analytics (up to 14 months). Aggregated statistics that cannot identify individuals may remain afterwards.</li>
             <li><strong>Union chat and Legend summon news:</strong> Because they are shared with other users, they may remain after account deletion. We will delete them on request by email.</li>
+            <li><strong>Report records:</strong> Kept for one year after the report is handled, to check repeated violations by the same player, then destroyed.</li>
             <li><strong>Device data:</strong> Removed from the device when you uninstall the Game or sign out.</li>
             <li>Accounts not signed in for one year may be deleted after prior notice.</li>
           </ul>
@@ -191,7 +199,7 @@
           <table>
             <colgroup><col style="width:30%"><col></colgroup>
             <tr><th>Recipient</th><th>Google LLC (Google Firebase, Google Cloud)</th></tr>
-            <tr><td>Items</td><td>Account identifier, email address (Google sign-in), player name, game progress data, union chat and summon news, payment records, access logs</td></tr>
+            <tr><td>Items</td><td>Account identifier, email address (Google or Apple sign-in), player name, report records, game progress data, union chat and summon news, payment records, access logs</td></tr>
             <tr><td>Location / Method</td><td>Game data and payment records are stored in the Seoul, Korea region (asia-northeast3). Sign-in may be processed on Google's servers worldwide, including the United States, and data is transmitted over an encrypted network with each sign-in, save, or purchase confirmation request.</td></tr>
             <tr><td>Purpose</td><td>Sign-in processing, game data storage, purchase confirmation and Gold grant records</td></tr>
             <tr><td>Retention</td><td>Until account deletion (payment records: see section 3)</td></tr>
