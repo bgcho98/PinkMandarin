@@ -57,7 +57,7 @@
             <tr><td>게임 전용 플레이어 ID (페이스북 버전. 페이스북이 이 게임에만 주는 ID로, 페이스북 계정 ID와 다릅니다)</td><td>게임을 시작할 때 페이스북 인스턴트 게임이 전달</td></tr>
             <tr><td>원스토어 계정 식별값 (원스토어 버전. 원스토어가 이 게임에 주는 플레이어 ID를 회사만 아는 비밀값으로 한 방향 암호화(HMAC-SHA256)해 만든 ID입니다. 플레이어 ID 원문은 저장하지 않습니다)</td><td>게임을 시작할 때 원스토어 로그인으로 전달</td></tr>
             <tr><td>익명 계정 ID (iOS·안드로이드 앱. 게스트로 시작할 때 Google Firebase가 만드는 무작위 ID)</td><td>게임을 처음 시작할 때 자동으로 발급</td></tr>
-            <tr><td>연결한 계정 정보 (iOS·안드로이드 앱에서 계정에 저장한 경우에만. Apple 또는 구글이 주는 계정 식별자와 그 계정의 이메일 주소. Apple의 "이메일 가리기"를 고르면 Apple이 만든 전달용 주소)</td><td>이용자가 "계정" 화면에서 Apple·구글 계정으로 저장할 때</td></tr>
+            <tr><td>연결한 계정 정보 (iOS·안드로이드 앱에서 계정에 저장한 경우에만. Apple 또는 구글이 주는 계정 식별자와 그 계정의 이름·이메일 주소. Apple의 "이메일 가리기"를 고르면 Apple이 만든 전달용 주소)</td><td>이용자가 "계정" 화면에서 Apple·구글 계정으로 저장할 때</td></tr>
             <tr><td>토스 계정 식별값 (토스 버전. 토스가 이 게임에 주는 익명 키를 한 방향 암호화(SHA-256)해 만든 ID입니다. 익명 키 원문은 저장하지 않습니다)</td><td>게임을 시작할 때 토스 로그인으로 전달</td></tr>
             <tr><td>마왕 이름</td><td>이용자가 게임에서 직접 정할 때</td></tr>
             <tr><td>게임 진행 데이터 (골드, 군단, 몬스터, 마왕, 레벨, 방어 기록)</td><td>게임을 하는 동안 자동으로 만들어짐</td></tr>
@@ -167,7 +167,7 @@
             <tr><td>Game-scoped player ID (Facebook version; an ID Facebook issues for this game only; it is not your Facebook account ID)</td><td>Provided by Facebook Instant Games when you start the Game</td></tr>
             <tr><td>ONE store account identifier (ONE store version; an ID made by one-way hashing (HMAC-SHA256), with a secret known only to the Company, the player ID ONE store issues for this game. The player ID itself is not stored)</td><td>Provided through ONE store sign-in when you start the Game</td></tr>
             <tr><td>Anonymous account ID (iOS and Android apps; a random ID Google Firebase creates when you start as a guest)</td><td>Issued automatically when you first start the Game</td></tr>
-            <tr><td>Linked account information (iOS and Android apps, only if you save to an account; the account identifier Apple or Google provides and that account's email address, or a relay address created by Apple if you choose "Hide My Email")</td><td>When you save with Apple or Google on the "Account" screen</td></tr>
+            <tr><td>Linked account information (iOS and Android apps, only if you save to an account; the account identifier Apple or Google provides and that account's name and email address, or a relay address created by Apple if you choose "Hide My Email")</td><td>When you save with Apple or Google on the "Account" screen</td></tr>
             <tr><td>Toss account identifier (Toss version; an ID made by one-way hashing (SHA-256) the anonymous key Toss issues for this game. The anonymous key itself is not stored)</td><td>Provided through Toss sign-in when you start the Game</td></tr>
             <tr><td>Demon Lord name</td><td>When you choose it in the Game</td></tr>
             <tr><td>Game progress data (gold, legion, monsters, Demon Lords, level, defense records)</td><td>Created automatically while you play</td></tr>
