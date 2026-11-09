@@ -13,6 +13,9 @@
     //   Android → Google Play (referrer에 UTM을 실어 Play Console 획득 보고서에서 광고 유입을 구분)
     //   iPhone·iPad → App Store
     //   그 밖의 기기(PC 등)는 이 페이지를 그대로 보여 준다. 소개 페이지는 index.html.
+    // 방문 측정 (2026-11-09): Vercel Web Analytics. 광고 클릭 중 몇 명이 실제로 도착했는지·기기·유입 경로를 남긴다.
+    //   측정 스크립트가 방문을 보낸 뒤(onload + 0.1초) 스토어로 넘긴다. 스크립트가 늦거나 막혀도 0.4초 뒤에는 넘긴다.
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     (function () {
       var ua = navigator.userAgent || '';
       var q = new URLSearchParams(location.search);
@@ -21,8 +24,15 @@
         encodeURIComponent('utm_source=' + src + '&utm_medium=' + med + '&utm_campaign=' + camp);
       var appStore = 'https://apps.apple.com/kr/app/id6826474179';
       var ipad = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;
-      if (/Android/i.test(ua)) location.replace(play);
-      else if (/iPhone|iPad|iPod/i.test(ua) || ipad) location.replace(appStore);
+      var dest = /Android/i.test(ua) ? play : (/iPhone|iPad|iPod/i.test(ua) || ipad) ? appStore : null;
+      var gone = false;
+      function go() { if (dest && !gone) { gone = true; location.replace(dest); } }
+      var s = document.createElement('script');
+      s.defer = true; s.src = '/_vercel/insights/script.js';
+      s.onload = function () { setTimeout(go, 100); };
+      s.onerror = go;
+      document.head.appendChild(s);
+      if (dest) setTimeout(go, 400);
     })();
   </script>
 </head>
